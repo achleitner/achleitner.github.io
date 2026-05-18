@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>achleitner.de</title>
     <style>
-        /* Agency Core Reset & Optimization Matrix */
+        /* Precision System Typography & Hardware Isolation */
         * { 
             box-sizing: border-box; 
             margin: 0; 
@@ -16,16 +16,19 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* The Canvas: Clean, True OLED Pitch Black 
-           Features a professional engineering subtle alignment micro-grid background.
+        /* The Atmospheric Depth Matrix:
+           Features a dual-layer hyper-faint grid combined with custom-tuned 
+           fluid ambient glowing coordinates running entirely on the GPU canvas.
         */
         html, body { 
-            background-color: #000000;
+            background-color: #030303;
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
-            background-size: 24px 24px;
-            background-position: center center;
+                radial-gradient(at 0% 0%, rgba(255, 51, 102, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(51, 153, 255, 0.04) 0px, transparent 50%),
+                linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+            background-attachment: fixed;
             color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
@@ -37,152 +40,209 @@
             display: grid; 
             place-items: center; 
             align-content: center; 
-            padding: clamp(40px, 8vh, 100px) 24px;
+            padding: clamp(60px, 10vh, 140px) 24px;
         }
 
-        /* Expert UI Structural Container */
+        /* The Spatial Hub: Container Matrix
+           Implements an engineered structural bounce animation using micro-delays.
+        */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
-            max-width: 320px; 
+            max-width: 315px; 
             width: 100%; 
             margin: 0 auto; 
-            /* Soft premium initial fade animation */
-            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: spatialQuantumEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Ultra-Clean Identity Logo Component */
+        /* The Monolith Ring: Avatar Assembly
+           Uses dual structural border buffers and dynamic back-blur depth isolation.
+        */
+        .avatar-assembly {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 56px;
+        }
+
+        .avatar-aura {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
         .identity-avatar { 
             width: 84px; 
             height: 84px; 
             border-radius: 50%; 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            background-color: #0A0A0C; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            background: rgba(10, 10, 12, 0.7); 
             object-fit: cover; 
-            margin-bottom: 48px;
-            padding: 2px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 3px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: border-color 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .identity-avatar:hover {
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: scale(1.02);
+        .avatar-assembly:hover .identity-avatar {
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.04) rotate(2deg);
         }
 
-        /* Strict Directives Flex Stack Layout */
+        /* Strict Directives Interface Cluster */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
             gap: 12px; 
-            margin-bottom: 64px;
+            margin-bottom: 72px;
         }
 
-        /* The Premium Button: Luxury Monochromatic Slate 
-           Uses strict alignment, light letter tracking, and an internal border injection.
+        /* The Hyper-Object Node: Liquid Glass Node Structure
+           Utilizes stacked high-frequency shadows and sub-pixel interior glass injections
+           to construct an undeniable sense of hyper-realistic weight and physical presence.
         */
         .interactive-node { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 15px 24px; 
-            background: #09090B; 
-            color: rgba(255, 255, 255, 0.8);      
-            font-size: 0.9rem; 
+            padding: 17px 28px; 
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%); 
+            color: rgba(255, 255, 255, 0.75);      
+            font-size: 0.88rem; 
             font-weight: 500; 
-            letter-spacing: 0.05em; 
+            letter-spacing: 0.06em; 
             text-transform: lowercase; 
             text-decoration: none; 
-            border-radius: 12px; 
-            border: 1px solid #18181B; 
+            border-radius: 14px; 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
             cursor: pointer; 
             position: relative;
             transform: translateZ(0); 
+            will-change: transform, background-color, border-color, box-shadow;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             -webkit-tap-highlight-color: transparent; 
-            /* Multi-step precise cubic-bezier easing speeds */
+            
+            /* Fluid exponential response timers */
             transition: 
-                background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
-                color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+                background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
         }
 
-        /* Subtle High-End Desktop Micro-Interactions */
+        /* Subtle Linear Micro-Light Highlights */
+        .interactive-node::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 14px;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: background 0.4s ease;
+        }
+
+        /* Advanced Dynamic Desktop State Processing */
         @media (hover: hover) {
             .interactive-node:hover { 
-                background-color: #121216; 
-                border-color: #27272A; 
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%); 
+                border-color: rgba(255, 255, 255, 0.2); 
                 color: #FFFFFF; 
-                transform: translateY(-2px); 
-                /* Premium structural shadow map */
+                transform: translateY(-3px) scale(1.015); 
+                
+                /* Hyper-dense volumetric dark ambient drop shadow mapping */
                 box-shadow: 
-                    0 10px 30px rgba(0, 0, 0, 0.7),
-                    inset 0 1px 0px rgba(255, 255, 255, 0.05);
+                    0 20px 40px rgba(0, 0, 0, 0.7),
+                    0 1px 0px rgba(255, 255, 255, 0.1) inset,
+                    0 0 20px rgba(255, 255, 255, 0.02);
+            }
+
+            .interactive-node:hover::after {
+                background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
             }
         }
 
-        /* Tactile Snappy Mobile Squeeze Mechanism */
+        /* Tactile Monolithic Squeeze Compression Feedback */
         .interactive-node:active { 
-            transform: translateY(0) scale(0.98);
-            background-color: #060608; 
-            border-color: #09090B;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            transform: translateY(-1px) scale(0.975);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%); 
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
             transition: transform 0.08s ease;
         }
 
-        /* Architectural Minimal Footer Configuration */
+        /* Premium Low-Frequency Footer Alignment */
         .premium-footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }
 
-        /* Pure Geometric Vector Code Icon Structure */
+        /* Pure Mathematical Symmetric Glyph */
         .vector-bracket {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: none;
-            stroke: #27272A; /* Expert-level sophisticated muted tone */
-            stroke-width: 1.75;
+            stroke: #2A2A30; 
+            stroke-width: 2;
             stroke-linecap: round;
             stroke-linejoin: round;
-            transition: stroke 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: stroke 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Clean Technical Communication Endpoint Link */
+        /* Typographic Interface Link Terminal */
         .contact-node {
-            color: #3F3F46;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            color: #44444A;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-decoration: none;
             text-transform: uppercase;
-            transition: color 0.4s ease, letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: color 0.4s ease, letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (hover: hover) {
             .contact-node:hover {
                 color: #A1A1AA;
-                letter-spacing: 0.11em; /* Subtle expandable spatial detail */
+                letter-spacing: 0.16em; 
             }
             .premium-footer:hover .vector-bracket {
-                stroke: #71717A;
-                transform: rotate(180deg); /* Highly subtle micro-animation detail */
+                stroke: #8A8A93;
+                transform: rotate(180deg) scale(1.08); 
             }
         }
 
-        /* Smooth Cinematic Entrance Timeline */
-        @keyframes suiteEntry {
-            from { 
+        /* High-Definition Launch Sequence Keyframes */
+        @keyframes spatialQuantumEntry {
+            0% { 
                 opacity: 0; 
-                transform: translateY(16px); 
+                transform: translateY(24px) scale(0.98); 
+                filter: blur(4px);
             }
-            to { 
+            100% { 
                 opacity: 1; 
-                transform: translateY(0); 
+                transform: translateY(0) scale(1); 
+                filter: blur(0);
             }
         }
     </style>
@@ -190,7 +250,10 @@
 <body>
 
     <div class="directory-wrapper">
-        <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
+        <div class="avatar-assembly">
+            <div class="avatar-aura"></div>
+            <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
+        </div>
         
         <div class="links-matrix">
             <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
