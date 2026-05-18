@@ -16,10 +16,7 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* The Atmospheric Depth Matrix:
-           Features a dual-layer hyper-faint grid combined with custom-tuned 
-           fluid ambient glowing coordinates running entirely on the GPU canvas.
-        */
+        /* The Atmospheric Depth Matrix */
         html, body { 
             background-color: #030303;
             background-image: 
@@ -36,16 +33,17 @@
             overflow-y: auto; 
         }
 
+        /* FIXED: Changed to vertical flex-direction with controlled top padding 
+           so it locks tightly to the viewport head instead of dipping down. */
         body { 
-            display: grid; 
-            place-items: center; 
-            align-content: center; 
-            padding: clamp(60px, 10vh, 140px) 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: clamp(40px, 6vh, 80px) 24px 60px 24px;
         }
 
-        /* The Spatial Hub: Container Matrix
-           Implements an engineered structural bounce animation using micro-delays.
-        */
+        /* The Spatial Hub: Container Matrix */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
@@ -55,13 +53,11 @@
             animation: spatialQuantumEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* The Monolith Ring: Avatar Assembly
-           Uses dual structural border buffers and dynamic back-blur depth isolation.
-        */
+        /* The Monolith Ring: Avatar Assembly */
         .avatar-assembly {
             position: relative;
             display: inline-block;
-            margin-bottom: 56px;
+            margin-bottom: 48px; /* Slightly tightened spacing */
         }
 
         .avatar-aura {
@@ -106,13 +102,10 @@
             display: flex; 
             flex-direction: column; 
             gap: 12px; 
-            margin-bottom: 72px;
+            margin-bottom: 56px;
         }
 
-        /* The Hyper-Object Node: Liquid Glass Node Structure
-           Utilizes stacked high-frequency shadows and sub-pixel interior glass injections
-           to construct an undeniable sense of hyper-realistic weight and physical presence.
-        */
+        /* The Hyper-Object Node: Liquid Glass Node Structure */
         .interactive-node { 
             display: flex; 
             align-items: center; 
@@ -136,7 +129,6 @@
             -webkit-backdrop-filter: blur(16px);
             -webkit-tap-highlight-color: transparent; 
             
-            /* Fluid exponential response timers */
             transition: 
                 background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -168,8 +160,6 @@
                 border-color: rgba(255, 255, 255, 0.2); 
                 color: #FFFFFF; 
                 transform: translateY(-3px) scale(1.015); 
-                
-                /* Hyper-dense volumetric dark ambient drop shadow mapping */
                 box-shadow: 
                     0 20px 40px rgba(0, 0, 0, 0.7),
                     0 1px 0px rgba(255, 255, 255, 0.1) inset,
