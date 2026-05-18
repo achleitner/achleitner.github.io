@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Links</title>
     <style>
         /* Premium Core Reset & Fluid Typography */
@@ -15,19 +15,17 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Ambient, True OLED Black Deep Space Layout */
+        /* Ambient, True OLED Black Canvas */
         html, body {
             background-color: #050505;
             color: #ffffff;
             width: 100%;
             min-height: 100%;
-            /* Fixes scrolling blocks on Android */
             overflow-x: hidden;
             overflow-y: auto; 
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Using modern grid instead of flex to fix landscape centering bugs */
         body {
             display: grid;
             place-items: center;
@@ -36,15 +34,40 @@
             position: relative;
         }
 
-        /* Fixed Interactive Canvas for Ambient Magic Background */
-        #ambient-canvas {
+        /* PURE CSS BACKGROUND SPARKLES (Layer 1 - Small Stars) */
+        body::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            /* Generates random coordinates across the space */
+            box-shadow: 
+                12vw 15vh #fff, 85vw 32vh rgba(255,255,255,0.4), 45vw 78vh #fff, 
+                23vw 62vh rgba(255,255,255,0.7), 68vw 12vh #fff, 91vw 85vh rgba(255,255,255,0.3),
+                5vw 40vh #fff, 73vw 55vh rgba(255,255,255,0.8), 33vw 22vh #fff,
+                55vw 67vh rgba(255,255,255,0.5), 18vw 90vh #fff, 80vw 70vh rgba(255,255,255,0.6);
             z-index: 1;
-            pointer-events: none;
+            animation: css-glitter-slow 6s ease-in-out infinite alternate;
+        }
+
+        /* PURE CSS BACKGROUND SPARKLES (Layer 2 - Micro Stars) */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1.5px;
+            height: 1.5px;
+            background: transparent;
+            box-shadow: 
+                30vw 10vh rgba(255,255,255,0.8), 75vw 80vh #fff, 10vw 70vh rgba(255,255,255,0.4),
+                60vw 40vh #fff, 88vw 15vh rgba(255,255,255,0.9), 40vw 92vh #fff,
+                50vw 25vh rgba(255,255,255,0.5), 95vw 50vh #fff, 25vw 35vh rgba(255,255,255,0.7);
+            z-index: 1;
+            animation: css-glitter-fast 4s ease-in-out infinite alternate;
         }
 
         /* Sophisticated, Controlled Container */
@@ -131,152 +154,4 @@
             top: -50%;
             left: -100%;
             width: 30%;
-            height: 200%;
-            background: linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.18) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: rotate(35deg);
-        }
-
-        /* Strictly Hover-Only Enhancements (Mouse Users) */
-        @media (hover: hover) {
-            .link-btn:hover {
-                background-color: rgba(255, 255, 255, 0.07);
-                border-color: rgba(255, 255, 255, 0.2);
-                transform: translateY(-2px);
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-                color: #ffffff;
-            }
-
-            .link-btn:hover::before {
-                animation: premium-shimmer 1.4s infinite cubic-bezier(0.25, 1, 0.5, 1);
-            }
-            
-            .avatar-container:hover .avatar {
-                border-color: rgba(255, 255, 255, 0.3);
-            }
-        }
-
-        /* Mobile Touch Click-Down Feedback State */
-        .link-btn:active {
-            transform: scale(0.97) translateY(0);
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            transition: transform 0.1s ease;
-        }
-
-        /* SOPHISTICATED TIMELINES */
-        @keyframes premium-shimmer {
-            0% { left: -100%; }
-            100% { left: 150%; }
-        }
-
-        @keyframes pulse-halo {
-            0%, 100% { transform: scale(1); opacity: 0.02; }
-            50% { transform: scale(1.15); opacity: 0.05; filter: blur(16px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-
-    <canvas id="ambient-canvas"></canvas>
-
-    <div class="container">
-        <div class="avatar-container">
-            <div class="avatar-glow"></div>
-            <img class="avatar" src="https://github.com/achleitner.png" alt="Logo">
-        </div>
-        
-        <div class="links-stack">
-            <a href="https://github.com/achleitner" class="link-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://instagram.com/kingstrapscom" class="link-btn" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
-            <a href="https://instagram.com/kingfluxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
-            <a href="https://instagram.com/kingchain.z" class="link-btn" target="_blank" rel="noopener noreferrer">@kingchainz</a>
-            <a href="https://instagram.com/kingclique" class="link-btn" target="_blank" rel="noopener noreferrer">@kingclique</a>
-            <a href="https://instagram.com/kingtraxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
-            <a href="https://instagram.com/ss5.me" class="link-btn" target="_blank" rel="noopener noreferrer">@ss5.me</a>
-        </div>
-    </div>
-
-    <script>
-        const canvas = document.getElementById('ambient-canvas');
-        const ctx = canvas.getContext('2d');
-
-        let particles = [];
-        const particleCount = 45;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        window.addEventListener('orientationchange', () => {
-            // Forces Android Chrome to recalculate size after structural rotation completes
-            setTimeout(resizeCanvas, 200);
-        });
-        resizeCanvas();
-
-        class SparkleParticle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.2 + 0.2;
-                this.speedX = (Math.random() - 0.5) * 0.15;
-                this.speedY = -Math.random() * 0.2 - 0.05;
-                this.alpha = Math.random();
-                this.fadeSpeed = Math.random() * 0.008 + 0.003;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                this.alpha -= this.fadeSpeed;
-                if (this.alpha <= 0 || this.y < 0) {
-                    this.x = Math.random() * canvas.width;
-                    this.y = window.innerHeight + 10;
-                    this.alpha = Math.random();
-                }
-            }
-
-            draw() {
-                ctx.save();
-                ctx.globalAlpha = this.alpha;
-                ctx.fillStyle = '#ffffff';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        function init() {
-            particles = [];
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new SparkleParticle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        animate();
-    </script>
-
-</body>
-</html>
+            height: 200
