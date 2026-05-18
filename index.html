@@ -3,117 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert Achleitner</title>
+    <title>Links</title>
     <style>
-        /* Modern reset and non-serif font stacking */
+        /* Modern reset & non-serif fonts */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* Smooth, dark gradient background */
+        /* Deep dark minimalist background */
         body {
-            background: linear-gradient(135deg, #0f0f11 0%, #1a1a1e 100%);
-            color: #f3f4f6;
+            background-color: #0b0b0c;
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 24px;
         }
 
-        /* Mobile-optimized profile container */
+        /* Centered button container */
         .container {
             text-align: center;
-            max-width: 400px;
+            max-width: 320px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 40px 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
         }
 
-        /* Optional Profile Avatar placeholder (styled dynamically using your username) */
+        /* Profile image with a subtle breathing pulse animation */
         .avatar {
-            width: 96px;
-            height: 96px;
+            width: 84px;
+            height: 84px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background-color: #24292f;
-        }
-
-        h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 8px;
-            color: #ffffff;
-        }
-
-        p {
-            font-size: 0.95rem;
-            color: #9ca3af;
             margin-bottom: 32px;
-            line-height: 1.5;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: #161618;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+            animation: breathe 4s ease-in-out infinite;
         }
 
-        /* Prominent mobile-first touch target button */
-        .github-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+        /* Vertical link stack */
+        .links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Premium sleek buttons equipped for shimmer/glitter effects */
+        .link-btn {
+            position: relative;
+            display: block;
             width: 100%;
             padding: 16px;
-            background-color: #ffffff;
-            color: #0f0f11;
-            font-size: 1rem;
-            font-weight: 600;
+            background-color: #161618;
+            color: #efeff1;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
             text-decoration: none;
-            border-radius: 14px;
-            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent; /* Clean touch feedback on iOS */
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden; /* Keeps the glitter/shimmer effect confined inside the button border */
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Interactive states for mouse & touch */
-        .github-btn:hover {
-            background-color: #e5e7eb;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        /* The Glitter/Shimmer Layer */
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                transparent
+            );
+            transform: skewX(-25deg);
         }
 
-        .github-btn:active {
+        /* Cool Hover Effects */
+        .link-btn:hover {
+            background-color: #1c1c1f;
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px); /* Slight lift */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Trigger the glitter flash loop on hover */
+        .link-btn:hover::before {
+            animation: sparkle-glide 1.2s ease-in-out infinite;
+        }
+
+        /* Active click/touch down state */
+        .link-btn:active {
             transform: translateY(0);
+            background-color: #141416;
         }
 
-        /* SVG Icon styling */
-        .github-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        /* ANIMATION TIMELINES */
+        
+        /* The sparkle/glitter movement across the face of the button */
+        @keyframes sparkle-glide {
+            0% {
+                left: -150%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* Logo pulse glow */
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.3);
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img class="avatar" src="https://github.com/achleitner.png" alt="Profile Picture">
+        <img class="avatar" src="https://github.com/achleitner.png" alt="Logo">
         
-        <h1>Robert E.M. Achleitner</h1>
-        <p>Welcome. You can explore my open-source work and software repositories over on GitHub.</p>
-        
-        <a href="https://github.com/achleitner" class="github-btn" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            View GitHub Profile
-        </a>
+        <div class="links-stack">
+            <a href="https://github.com/achleitner" class="link-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://instagram.com/kingstrapscom" class="link-btn" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
+            <a href="https://instagram.com/kingfluxxx" class="link-btn" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
+            <a href="https://instagram.com/kingchainz" class="link-btn" target="_blank" rel="noopener noreferrer">@kingchainz</a>
+            <a href="https://instagram.com/kingtraxxx" class="link-btn" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
+        </div>
     </div>
 
 </body>
