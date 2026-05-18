@@ -5,158 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>achleitner.de</title>
     <style>
-        /* Modern Reset & System Fonts */
+        /* Modern Reset & Fluid Monospace Archetype */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            outline: none !important;
         }
 
-        /* True OLED Pitch Black Background */
+        /* Ambient True Black Canvas */
         html, body { 
-            background-color: #000000 !important;
+            background-color: #000000;
             color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
-            overflow-x: hidden; 
-            overflow-y: auto; 
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         body { 
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding: clamp(60px, 12vh, 140px) 24px 60px 24px;
+            justify-content: space-between;
+            padding: clamp(80px, 15vh, 160px) 24px 60px 24px;
+            /* Subtle dark-mode depth layer */
+            background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
         }
 
-        /* UI Container Box */
+        /* Monolith Wrapper */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
-            max-width: 280px; 
+            max-width: 320px; 
             width: 100%; 
-            margin: 0 auto; 
-            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            margin: auto 0;
+            animation: premiumEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Identity Frame */
+        /* Identity Token Frame */
         .avatar-assembly {
             position: relative;
             display: inline-block;
-            margin-bottom: 64px;
-            background: #000000; /* Anchor base black background */
+            width: 80px;
+            height: 80px;
+            margin-bottom: 56px;
+            background: #000000;
+            border-radius: 50%;
+            isolation: isolate;
+            overflow: hidden;
+            /* Subtle high-end rim lighting shadow */
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
-        /* FIXED: Added mix-blend-mode filtering rules.
-           This tells the browser to drop dark pixels and map light pixels to true transparency.
-        */
         .identity-avatar { 
-            width: 72px; 
-            height: 72px; 
-            border-radius: 50%; 
-            border: none !important; 
-            outline: none !important;
+            display: block;
+            width: 100%; 
+            height: 100%; 
             object-fit: cover; 
-            background: #000000;
-            
-            /* The UX Magic Trick: Forces the off-black image parts to turn completely see-through */
+            filter: grayscale(1) contrast(1.3) brightness(1.05);
             mix-blend-mode: screen; 
-            
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .avatar-assembly:hover .identity-avatar {
-            transform: scale(1.04);
-            opacity: 0.9;
+            transform: scale(1.08);
         }
 
-        /* Directives Stream Layout */
+        /* Typographic Interactive Node Matrix */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
-            gap: 2px; 
+            gap: 4px; 
             margin-bottom: 72px;
         }
 
-        /* Pure Typographic Interactive Elements */
-        .interactive-node,
-        .interactive-node:link,
-        .interactive-node:visited,
-        .interactive-node:hover,
-        .interactive-node:active,
-        .interactive-node:focus { 
+        .interactive-node { 
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 14px 0; 
-            background: transparent !important; 
-            background-color: transparent !important;
-            border: 0px solid transparent !important;
-            border-style: none !important;
-            outline: 0px transparent unset !important;
-            box-shadow: none !important;
-            text-shadow: none !important;
-            font-size: 0.88rem; 
+            padding: 12px 0; 
+            background: transparent;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.84rem; 
             font-weight: 400; 
-            letter-spacing: 0.12em; 
+            letter-spacing: 0.14em; 
             text-transform: lowercase; 
             text-decoration: none; 
             position: relative;
-            -webkit-tap-highlight-color: transparent !important;   
+            -webkit-tap-highlight-color: transparent;   
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        text-shadow 0.4s ease;
         }
 
-        .interactive-node {
-            color: rgba(255, 255, 255, 0.8);     
-            transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        /* Focal Target Dot Micro-Interaction */
-        .interactive-node::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background-color: #FFFFFF;
-            opacity: 0;
-            transform: scale(0);
-            transition: opacity 0.25s ease, transform 0.25s ease;
-        }
-
+        /* Dynamic Blurring Hover Effect Map */
         @media (hover: hover) {
             .interactive-node:hover { 
-                color: #FFFFFF !important; 
-                transform: translateX(6px); 
-                background: transparent !important;
-                border: none !important;
+                color: #FFFFFF;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
             }
 
-            .interactive-node:hover::before {
-                opacity: 1;
-                transform: scale(1);
-            }
-
+            /* Dim alternative items slightly when hovering one to draw focus */
             .links-matrix:hover .interactive-node:not(:hover) {
-                opacity: 0.35;
-                color: rgba(255, 255, 255, 0.2);
+                opacity: 0.25;
             }
         }
 
         .interactive-node:active { 
-            color: rgba(255, 255, 255, 0.5) !important;
-            transform: translateX(4px);
-            background: transparent !important;
-            border: none !important;
+            color: rgba(255, 255, 255, 0.4);
+            transition: color 0.1s ease;
         }
 
-        /* Structural Footer Platform */
+        /* Pure Typographic Footer Platform */
         .premium-footer {
             display: flex;
             flex-direction: column;
@@ -167,11 +131,11 @@
         .divider-line {
             width: 16px;
             height: 1px;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.15);
         }
 
         .contact-node {
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.35);
             font-size: 0.68rem;
             font-weight: 500;
             letter-spacing: 0.15em;
@@ -183,20 +147,20 @@
 
         @media (hover: hover) {
             .contact-node:hover {
-                color: rgba(255, 255, 255, 0.8);
+                color: rgba(255, 255, 255, 0.75);
             }
         }
 
-        /* Entry Animation Sequence */
-        @keyframes suiteEntry {
+        /* Premium Smooth Kinematic Entry Animation */
+        @keyframes premiumEntry {
             from { 
                 opacity: 0; 
-                filter: blur(4px);
-                transform: translateY(12px); 
+                filter: blur(8px) brightness(0.5);
+                transform: translateY(20px); 
             }
             to { 
                 opacity: 1; 
-                filter: blur(0);
+                filter: blur(0) brightness(1);
                 transform: translateY(0); 
             }
         }
@@ -205,11 +169,13 @@
 <body>
 
     <div class="directory-wrapper">
-        <div class="avatar-assembly">
-            <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
-        </div>
+        <header>
+            <div class="avatar-assembly">
+                <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
+            </div>
+        </header>
         
-        <div class="links-matrix">
+        <main class="links-matrix">
             <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
             <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstraps</a>
             <a href="https://instagram.com/kingfluxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
@@ -217,7 +183,7 @@
             <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingclique</a>
             <a href="https://instagram.com/kingtraxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
             <a href="https://instagram.com/ss5.me" class="interactive-node" target="_blank" rel="noopener noreferrer">@ss5.me</a>
-        </div>
+        </main>
 
         <footer class="premium-footer">
             <div class="divider-line"></div>
