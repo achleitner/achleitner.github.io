@@ -8,8 +8,34 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         html, body { background-color: #050505; color: #ffffff; width: 100%; min-height: 100%; overflow-x: hidden; overflow-y: auto; }
         body { display: grid; place-items: center; align-content: center; padding: 60px 24px; position: relative; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 1px; height: 1px; background: transparent; box-shadow: 12vw 15vh #fff, 85vw 32vh rgba(255,255,255,0.4), 45vw 78vh #fff, 23vw 62vh rgba(255,255,255,0.7), 68vw 12vh #fff, 91vw 85vh rgba(255,255,255,0.3), 5vw 40vh #fff, 73vw 55vh rgba(255,255,255,0.8), 33vw 22vh #fff, 55vw 67vh rgba(255,255,255,0.5), 18vw 90vh #fff, 80vw 70vh rgba(255,255,255,0.6); z-index: 1; animation: css-glitter-slow 6s ease-in-out infinite alternate; }
-        body::after { content: ""; position: fixed; top: 0; left: 0; width: 1.5px; height: 1.5px; background: transparent; box-shadow: 30vw 10vh rgba(255,255,255,0.8), 75vw 80vh #fff, 10vw 70vh rgba(255,255,255,0.4), 60vw 40vh #fff, 88vw 15vh rgba(255,255,255,0.9), 40vw 92vh #fff, 50vw 25vh rgba(255,255,255,0.5), 95vw 50vh #fff, 25vw 35vh rgba(255,255,255,0.7); z-index: 1; animation: css-glitter-fast 4s ease-in-out infinite alternate; }
         .container { position: relative; z-index: 2; text-align: center; max-width: 310px; width: 100%; margin: 0 auto; }
         .avatar-container { position: relative; display: inline-block; margin-bottom: 36px; }
-        .avatar { position: relative; width: 88px; height: 88px; border-radius: 50%; border: 1px
+        .avatar { position: relative; width: 88px; height: 88px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.12); background-color: #121214; object-fit: cover; }
+        .links-stack { display: flex; flex-direction: column; gap: 12px; }
+        .link-btn { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; padding: 15px 20px; background: rgba(255, 255, 255, 0.03); color: rgba(255, 255, 255, 0.85); font-size: 0.92rem; font-weight: 400; letter-spacing: 0.02em; text-decoration: none; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, color 0.3s ease; -webkit-tap-highlight-color: transparent; }
+        .link-btn::before { content: ''; position: absolute; top: -50%; left: -100%; width: 30%; height: 200%; background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0) 100%); transform: rotate(35deg); }
+        @media (hover: hover) {
+            .link-btn:hover { background-color: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); color: #ffffff; }
+            .link-btn:hover::before { animation: premium-shimmer 1.4s infinite linear; }
+        }
+        .link-btn:active { transform: scale(0.97); background-color: rgba(255, 255, 255, 0.05); }
+        @keyframes premium-shimmer { 0% { left: -100%; } 100% { left: 150%; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar-container">
+            <img class="avatar" src="https://github.com/achleitner.png" alt="Logo">
+        </div>
+        <div class="links-stack">
+            <a href="https://github.com/achleitner" class="link-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://instagram.com/kingstrapscom" class="link-btn" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
+            <a href="https://instagram.com/kingfluxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
+            <a href="https://instagram.com/kingchain.z" class="link-btn" target="_blank" rel="noopener noreferrer">@kingchainz</a>
+            <a href="https://instagram.com/kingclique" class="link-btn" target="_blank" rel="noopener noreferrer">@kingclique</a>
+            <a href="https://instagram.com/kingtraxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
+            <a href="https://instagram.com/ss5.me" class="link-btn" target="_blank" rel="noopener noreferrer">@ss5.me</a>
+        </div>
+    </div>
+</body>
+</html>
