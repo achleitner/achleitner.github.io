@@ -16,9 +16,16 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* The Canvas: Pure, Flat OLED Pitch Black */
+        /* The Canvas: Clean, True OLED Pitch Black 
+           Features a professional engineering subtle alignment micro-grid background.
+        */
         html, body { 
             background-color: #000000;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-position: center center;
             color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
@@ -27,126 +34,151 @@
         }
 
         body { 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: clamp(40px, 6vh, 80px) 24px 60px 24px;
+            display: grid; 
+            place-items: center; 
+            align-content: center; 
+            padding: clamp(40px, 8vh, 100px) 24px;
         }
 
-        /* Strict UI Structural Container */
+        /* Expert UI Structural Container */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
-            max-width: 315px; 
+            max-width: 320px; 
             width: 100%; 
             margin: 0 auto; 
-            animation: flatEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            /* Soft premium initial fade animation */
+            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Clean Profile Container */
-        .avatar-assembly {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 48px;
-        }
-
+        /* Ultra-Clean Identity Logo Component */
         .identity-avatar { 
             width: 84px; 
             height: 84px; 
             border-radius: 50%; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            background-color: #09090B; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            background-color: #0A0A0C; 
             object-fit: cover; 
+            margin-bottom: 48px;
+            padding: 2px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Strict Flex Stack Layout */
+        .identity-avatar:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* Strict Directives Flex Stack Layout */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
-            gap: 10px; 
-            margin-bottom: 56px;
+            gap: 12px; 
+            margin-bottom: 64px;
         }
 
-        /* Pure Matte Minimalist Slabs */
+        /* The Premium Button: Luxury Monochromatic Slate 
+           Uses strict alignment, light letter tracking, and an internal border injection.
+        */
         .interactive-node { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 16px 24px; 
-            background: #141416; /* Solid, premium matte charcoal block */
-            color: rgba(255, 255, 255, 0.7);      
+            padding: 15px 24px; 
+            background: #09090B; 
+            color: rgba(255, 255, 255, 0.8);      
             font-size: 0.9rem; 
             font-weight: 500; 
-            letter-spacing: 0.04em; 
+            letter-spacing: 0.05em; 
             text-transform: lowercase; 
             text-decoration: none; 
-            border-radius: 6px; /* Architectural sharp corner profile */
-            border: none;
+            border-radius: 12px; 
+            border: 1px solid #18181B; 
             cursor: pointer; 
             position: relative;
             transform: translateZ(0); 
             -webkit-tap-highlight-color: transparent; 
-            transition: background-color 0.25s ease, color 0.25s ease;
+            /* Multi-step precise cubic-bezier easing speeds */
+            transition: 
+                background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
 
-        /* Subtle Desktop Matte Contrast Shifting */
+        /* Subtle High-End Desktop Micro-Interactions */
         @media (hover: hover) {
             .interactive-node:hover { 
-                background-color: #1D1D20; /* Steps up opacity cleanly without movement */
+                background-color: #121216; 
+                border-color: #27272A; 
                 color: #FFFFFF; 
+                transform: translateY(-2px); 
+                /* Premium structural shadow map */
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.7),
+                    inset 0 1px 0px rgba(255, 255, 255, 0.05);
             }
         }
 
-        /* Tactile Press State */
+        /* Tactile Snappy Mobile Squeeze Mechanism */
         .interactive-node:active { 
-            background-color: #0E0E10; 
-            color: rgba(255, 255, 255, 0.4);
-            transition: background-color 0.05s ease;
+            transform: translateY(0) scale(0.98);
+            background-color: #060608; 
+            border-color: #09090B;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            transition: transform 0.08s ease;
         }
 
-        /* Minimal Footer Architecture */
+        /* Architectural Minimal Footer Configuration */
         .premium-footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
         }
 
         /* Pure Geometric Vector Code Icon Structure */
         .vector-bracket {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: none;
-            stroke: #232326; 
-            stroke-width: 2;
+            stroke: #27272A; /* Expert-level sophisticated muted tone */
+            stroke-width: 1.75;
             stroke-linecap: round;
             stroke-linejoin: round;
+            transition: stroke 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Clean Technical Communication Endpoint Link */
         .contact-node {
-            color: #38383C;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            color: #3F3F46;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
             text-decoration: none;
             text-transform: uppercase;
-            transition: color 0.25s ease;
+            transition: color 0.4s ease, letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (hover: hover) {
             .contact-node:hover {
-                color: #71717A;
+                color: #A1A1AA;
+                letter-spacing: 0.11em; /* Subtle expandable spatial detail */
+            }
+            .premium-footer:hover .vector-bracket {
+                stroke: #71717A;
+                transform: rotate(180deg); /* Highly subtle micro-animation detail */
             }
         }
 
-        /* Snappy Direct Entry Animation */
-        @keyframes flatEntry {
+        /* Smooth Cinematic Entrance Timeline */
+        @keyframes suiteEntry {
             from { 
                 opacity: 0; 
-                transform: translateY(8px); 
+                transform: translateY(16px); 
             }
             to { 
                 opacity: 1; 
@@ -158,13 +190,11 @@
 <body>
 
     <div class="directory-wrapper">
-        <div class="avatar-assembly">
-            <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
-        </div>
+        <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
         
         <div class="links-matrix">
             <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
-            <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstraps</a>
+            <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
             <a href="https://instagram.com/kingfluxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
             <a href="https://instagram.com/kingchain.z" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingchainz</a>
             <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingclique</a>
