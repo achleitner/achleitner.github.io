@@ -2,25 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>achleitner.de</title>
     <style>
-        /* Modern Reset & System Fonts */
+        /* Agency Core Reset & Optimization Matrix */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
-        /* Dark Mesh Gradient Background */
+        /* The Canvas: Clean, True OLED Pitch Black 
+           Features a professional engineering subtle alignment micro-grid background.
+        */
         html, body { 
-            background-color: #050506;
+            background-color: #000000;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(255, 51, 102, 0.04) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(51, 153, 255, 0.04) 0px, transparent 50%);
-            color: #ffffff; 
+                linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-position: center center;
+            color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
             overflow-x: hidden; 
@@ -31,150 +37,177 @@
             display: grid; 
             place-items: center; 
             align-content: center; 
-            padding: 60px 24px 40px 24px;
-            position: relative;
+            padding: clamp(40px, 8vh, 100px) 24px;
         }
 
-        /* Controlled Container */
-        .container { 
+        /* Expert UI Structural Container */
+        .directory-wrapper { 
+            position: relative;
             text-align: center; 
             max-width: 320px; 
             width: 100%; 
             margin: 0 auto; 
+            /* Soft premium initial fade animation */
+            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Sleek Avatar Component */
-        .avatar { 
-            width: 92px; 
-            height: 92px; 
+        /* Ultra-Clean Identity Logo Component */
+        .identity-avatar { 
+            width: 84px; 
+            height: 84px; 
             border-radius: 50%; 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            background-color: #121214; 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            background-color: #0A0A0C; 
             object-fit: cover; 
-            margin-bottom: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            margin-bottom: 48px;
+            padding: 2px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            transition: border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Interface Stack Layout */
-        .links-stack { 
+        .identity-avatar:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* Strict Directives Flex Stack Layout */
+        .links-matrix { 
             display: flex; 
             flex-direction: column; 
-            gap: 14px; 
-            margin-bottom: 48px;
+            gap: 12px; 
+            margin-bottom: 64px;
         }
 
-        /* High-Visibility Premium Charcoal Buttons */
-        .link-btn { 
+        /* The Premium Button: Luxury Monochromatic Slate 
+           Uses strict alignment, light letter tracking, and an internal border injection.
+        */
+        .interactive-node { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 16px 24px; 
-            background: rgba(255, 255, 255, 0.07); 
-            color: rgba(255, 255, 255, 0.9);      
-            font-size: 0.94rem; 
+            padding: 15px 24px; 
+            background: #09090B; 
+            color: rgba(255, 255, 255, 0.8);      
+            font-size: 0.9rem; 
             font-weight: 500; 
-            letter-spacing: 0.03em; 
+            letter-spacing: 0.05em; 
             text-transform: lowercase; 
             text-decoration: none; 
-            border-radius: 16px; 
-            border: 1px solid rgba(255, 255, 255, 0.14); 
+            border-radius: 12px; 
+            border: 1px solid #18181B; 
             cursor: pointer; 
             position: relative;
             transform: translateZ(0); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            -webkit-tap-highlight-color: transparent; 
+            /* Multi-step precise cubic-bezier easing speeds */
             transition: 
                 background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                 border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                 color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
-            -webkit-tap-highlight-color: transparent; 
         }
 
-        /* Subtle Desktop Hover Interaction */
+        /* Subtle High-End Desktop Micro-Interactions */
         @media (hover: hover) {
-            .link-btn:hover { 
-                background-color: rgba(255, 255, 255, 0.15); 
-                border-color: rgba(255, 255, 255, 0.4); 
-                color: #ffffff; 
+            .interactive-node:hover { 
+                background-color: #121216; 
+                border-color: #27272A; 
+                color: #FFFFFF; 
                 transform: translateY(-2px); 
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+                /* Premium structural shadow map */
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.7),
+                    inset 0 1px 0px rgba(255, 255, 255, 0.05);
             }
         }
 
-        /* Smooth Mobile Press Action */
-        .link-btn:active { 
-            transform: translateY(0) scale(0.97);
-            background-color: rgba(255, 255, 255, 0.04); 
-            border-color: rgba(255, 255, 255, 0.1);
-            transition: transform 0.1s ease;
+        /* Tactile Snappy Mobile Squeeze Mechanism */
+        .interactive-node:active { 
+            transform: translateY(0) scale(0.98);
+            background-color: #060608; 
+            border-color: #09090B;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            transition: transform 0.08s ease;
         }
 
-        /* Minimalist Footer Architecture */
-        .footer {
+        /* Architectural Minimal Footer Configuration */
+        .premium-footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
-        /* Geometric Code Bracket Icon */
-        .code-logo {
-            width: 24px;
-            height: 24px;
+        /* Pure Geometric Vector Code Icon Structure */
+        .vector-bracket {
+            width: 20px;
+            height: 20px;
             fill: none;
-            stroke: rgba(255, 255, 255, 0.22); /* Smooth muted grey */
-            stroke-width: 2;
+            stroke: #27272A; /* Expert-level sophisticated muted tone */
+            stroke-width: 1.75;
             stroke-linecap: round;
             stroke-linejoin: round;
-            transition: stroke 0.3s ease, transform 0.3s ease;
+            transition: stroke 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Understated Email Link */
-        .email-link {
-            color: rgba(255, 255, 255, 0.35);
-            font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
+        /* Clean Technical Communication Endpoint Link */
+        .contact-node {
+            color: #3F3F46;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
             text-decoration: none;
-            transition: color 0.3s ease;
+            text-transform: uppercase;
+            transition: color 0.4s ease, letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (hover: hover) {
-            .email-link:hover {
-                color: rgba(255, 255, 255, 0.7);
+            .contact-node:hover {
+                color: #A1A1AA;
+                letter-spacing: 0.11em; /* Subtle expandable spatial detail */
             }
-            .footer:hover .code-logo {
-                stroke: rgba(255, 255, 255, 0.5);
-                transform: scale(1.05);
+            .premium-footer:hover .vector-bracket {
+                stroke: #71717A;
+                transform: rotate(180deg); /* Highly subtle micro-animation detail */
+            }
+        }
+
+        /* Smooth Cinematic Entrance Timeline */
+        @keyframes suiteEntry {
+            from { 
+                opacity: 0; 
+                transform: translateY(16px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img class="avatar" src="https://github.com/achleitner.png" alt="Logo">
+    <div class="directory-wrapper">
+        <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
         
-        <div class="links-stack">
-            <a href="https://github.com/achleitner" class="link-btn" target="_blank" rel="noopener noreferrer">github</a>
-            <a href="https://instagram.com/kingstrapscom" class="link-btn" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
-            <a href="https://instagram.com/kingfluxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
-            <a href="https://instagram.com/kingchain.z" class="link-btn" target="_blank" rel="noopener noreferrer">@kingchainz</a>
-            <a href="https://instagram.com/kingclique" class="link-btn" target="_blank" rel="noopener noreferrer">@kingclique</a>
-            <a href="https://instagram.com/kingtraxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
-            <a href="https://instagram.com/ss5.me" class="link-btn" target="_blank" rel="noopener noreferrer">@ss5.me</a>
+        <div class="links-matrix">
+            <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstrapscom</a>
+            <a href="https://instagram.com/kingfluxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
+            <a href="https://instagram.com/kingchain.z" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingchainz</a>
+            <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingclique</a>
+            <a href="https://instagram.com/kingtraxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
+            <a href="https://instagram.com/ss5.me" class="interactive-node" target="_blank" rel="noopener noreferrer">@ss5.me</a>
         </div>
 
-        <footer class="footer">
-            <svg class="code-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <footer class="premium-footer">
+            <svg class="vector-bracket" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <polyline points="16 18 22 12 16 6"></polyline>
                 <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
-            <a href="mailto:github@achleitner.de" class="email-link">github@achleitner.de</a>
+            <a href="mailto:github@achleitner.de" class="contact-node">github@achleitner.de</a>
         </footer>
     </div>
 
