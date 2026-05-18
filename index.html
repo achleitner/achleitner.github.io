@@ -15,7 +15,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* FIXED: Softened canvas from stark #000000 to a premium deep charcoal matte background */
+        /* Ambient Canvas */
         html, body { 
             background-color: #0a0a0a;
             color: #FFFFFF; 
@@ -32,8 +32,8 @@
             justify-content: space-between;
             padding: clamp(80px, 15vh, 160px) 24px 60px 24px;
             
-            /* FIXED: Expanded and softened the radial gradient ambient lighting to reduce harsh contrast */
-            background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.04) 0%, rgba(10, 10, 10, 0) 60%);
+            /* FIXED: Shifted gradient anchor point to center precisely behind the logo */
+            background: radial-gradient(circle at 50% 120px, rgba(255, 255, 255, 0.05) 0%, rgba(10, 10, 10, 0) 50%);
         }
 
         /* Monolith Wrapper */
@@ -53,7 +53,7 @@
             width: 80px;
             height: 80px;
             margin-bottom: 56px;
-            background: #0a0a0a; /* Updated to match new base background */
+            background: #0a0a0a;
             border-radius: 50%;
             isolation: isolate;
             overflow: hidden;
