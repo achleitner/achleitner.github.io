@@ -81,7 +81,7 @@
             border: 1px solid rgba(255, 255, 255, 0.14); 
             cursor: pointer; 
             position: relative;
-            transform: translateZ(0); /* Android rendering fix */
+            transform: translateZ(0); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -121,12 +121,16 @@
             gap: 12px;
         }
 
-        /* Cleaned Symmetrical HTML5 Icon */
-        .html5-logo {
-            width: 22px;
-            height: 22px;
-            fill: rgba(255, 255, 255, 0.25);
-            transition: fill 0.3s ease, transform 0.3s ease;
+        /* Geometric Code Bracket Icon */
+        .code-logo {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.22); /* Smooth muted grey */
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s ease, transform 0.3s ease;
         }
 
         /* Understated Email Link */
@@ -143,8 +147,8 @@
             .email-link:hover {
                 color: rgba(255, 255, 255, 0.7);
             }
-            .footer:hover .html5-logo {
-                fill: rgba(255, 255, 255, 0.5);
+            .footer:hover .code-logo {
+                stroke: rgba(255, 255, 255, 0.5);
                 transform: scale(1.05);
             }
         }
@@ -166,8 +170,9 @@
         </div>
 
         <footer class="footer">
-            <svg class="html5-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17.3 5.4H5.2l.4 4.5h11.2l-.4 4.6-4.4 1.2-4.4-1.2-.3-3h-2.2l.5 5.3L12 18.1l6.4-1.8.9-10.9z"/>
+            <svg class="code-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
             <a href="mailto:github@achleitner.de" class="email-link">github@achleitner.de</a>
         </footer>
