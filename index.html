@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>achleitner.de</title>
     <style>
+        /* Modern Reset & System Fonts */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             outline: none !important;
         }
 
+        /* True OLED Pitch Black Background */
         html, body { 
             background-color: #000000 !important;
             color: #FFFFFF; 
@@ -28,35 +31,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: clamp(60px, 10vh, 120px) 24px 60px 24px;
+            padding: clamp(60px, 12vh, 140px) 24px 60px 24px;
         }
 
+        /* UI Container Box */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
             max-width: 280px; 
             width: 100%; 
             margin: 0 auto; 
+            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
+        /* Identity Frame */
         .avatar-assembly {
             position: relative;
             display: inline-block;
             margin-bottom: 64px;
+            background: #000000; /* Anchor base black background */
         }
 
-        /* Logo remains 100% solid and uncompromised */
+        /* FIXED: Added mix-blend-mode filtering rules.
+           This tells the browser to drop dark pixels and map light pixels to true transparency.
+        */
         .identity-avatar { 
             width: 72px; 
             height: 72px; 
             border-radius: 50%; 
-            filter: grayscale(1);
             border: none !important; 
             outline: none !important;
             object-fit: cover; 
-            background: transparent;
+            background: #000000;
+            
+            /* The UX Magic Trick: Forces the off-black image parts to turn completely see-through */
+            mix-blend-mode: screen; 
+            
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
 
+        .avatar-assembly:hover .identity-avatar {
+            transform: scale(1.04);
+            opacity: 0.9;
+        }
+
+        /* Directives Stream Layout */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
@@ -64,6 +83,7 @@
             margin-bottom: 72px;
         }
 
+        /* Pure Typographic Interactive Elements */
         .interactive-node,
         .interactive-node:link,
         .interactive-node:visited,
@@ -91,12 +111,12 @@
             -webkit-tap-highlight-color: transparent !important;   
         }
 
-        /* FIXED: Increased opacity from 0.45 to 0.8 for strong baseline visibility */
         .interactive-node {
             color: rgba(255, 255, 255, 0.8);     
             transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
         }
 
+        /* Focal Target Dot Micro-Interaction */
         .interactive-node::before {
             content: '';
             position: absolute;
@@ -111,7 +131,6 @@
         }
 
         @media (hover: hover) {
-            /* Hover pops cleanly to absolute white (#FFF) */
             .interactive-node:hover { 
                 color: #FFFFFF !important; 
                 transform: translateX(6px); 
@@ -124,9 +143,9 @@
                 transform: scale(1);
             }
 
-            /* Still isolates focus by softening the unhovered links */
             .links-matrix:hover .interactive-node:not(:hover) {
                 opacity: 0.35;
+                color: rgba(255, 255, 255, 0.2);
             }
         }
 
@@ -137,6 +156,7 @@
             border: none !important;
         }
 
+        /* Structural Footer Platform */
         .premium-footer {
             display: flex;
             flex-direction: column;
@@ -164,6 +184,20 @@
         @media (hover: hover) {
             .contact-node:hover {
                 color: rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* Entry Animation Sequence */
+        @keyframes suiteEntry {
+            from { 
+                opacity: 0; 
+                filter: blur(4px);
+                transform: translateY(12px); 
+            }
+            to { 
+                opacity: 1; 
+                filter: blur(0);
+                transform: translateY(0); 
             }
         }
     </style>
