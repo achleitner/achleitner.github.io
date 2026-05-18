@@ -31,7 +31,7 @@
             display: grid; 
             place-items: center; 
             align-content: center; 
-            padding: 60px 24px 40px 24px; /* Slightly adjusted padding to make room for footer */
+            padding: 60px 24px 40px 24px;
             position: relative;
         }
 
@@ -60,7 +60,7 @@
             display: flex; 
             flex-direction: column; 
             gap: 14px; 
-            margin-bottom: 48px; /* Added spacing between buttons and footer */
+            margin-bottom: 48px;
         }
 
         /* High-Visibility Premium Charcoal Buttons */
@@ -81,6 +81,7 @@
             border: 1px solid rgba(255, 255, 255, 0.14); 
             cursor: pointer; 
             position: relative;
+            transform: translateZ(0); /* Android rendering fix */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -117,15 +118,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        /* Scaled, Muted HTML5 Inline SVG Icon */
+        /* Cleaned Symmetrical HTML5 Icon */
         .html5-logo {
-            width: 20px;
-            height: 20px;
-            fill: rgba(255, 255, 255, 0.25); /* Subtle grey tone */
-            transition: fill 0.3s ease;
+            width: 22px;
+            height: 22px;
+            fill: rgba(255, 255, 255, 0.25);
+            transition: fill 0.3s ease, transform 0.3s ease;
         }
 
         /* Understated Email Link */
@@ -143,7 +144,8 @@
                 color: rgba(255, 255, 255, 0.7);
             }
             .footer:hover .html5-logo {
-                fill: rgba(255, 255, 255, 0.5); /* Brightens smoothly when hovering area */
+                fill: rgba(255, 255, 255, 0.5);
+                transform: scale(1.05);
             }
         }
     </style>
@@ -164,8 +166,8 @@
         </div>
 
         <footer class="footer">
-            <svg class="html5-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <path d="M64 32l36.4 406 155.6 42 155.4-42L448 32H64zm291.2 147.2l-7.4 80H179.8l5.2 57.6 71 19.2 71.2-19.2 7.4-82.4H212.4l-5.4-55.2h183.8l10.6-118.4H114.6l5.4 55.2h235.2z"/>
+            <svg class="html5-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 0h21l-1.9 21.2L12 24l-8.6-2.8L1.5 0zm17.3 5.4H5.2l.4 4.5h11.2l-.4 4.6-4.4 1.2-4.4-1.2-.3-3h-2.2l.5 5.3L12 18.1l6.4-1.8.9-10.9z"/>
             </svg>
             <a href="mailto:github@achleitner.de" class="email-link">github@achleitner.de</a>
         </footer>
