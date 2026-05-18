@@ -49,11 +49,11 @@
             position: relative;
             display: inline-block;
             margin-bottom: 64px;
-            background: #000000; /* Anchor base black background */
+            background: transparent; /* Changed to transparent to let masking work */
         }
 
-        /* FIXED: Added mix-blend-mode filtering rules.
-           This tells the browser to drop dark pixels and map light pixels to true transparency.
+        /* FIXED: Replaced unreliable mix-blend-mode with a Luminance Mask.
+           This physically maps the dark pixels of the JPG to transparent alpha channels.
         */
         .identity-avatar { 
             width: 72px; 
@@ -62,10 +62,12 @@
             border: none !important; 
             outline: none !important;
             object-fit: cover; 
-            background: #000000;
+            background: transparent;
             
-            /* The UX Magic Trick: Forces the off-black image parts to turn completely see-through */
-            mix-blend-mode: screen; 
+            /* High-performance extraction of whites from dark backgrounds */
+            filter: grayscale(1) contrast(1.15) brightness(1.05);
+            -webkit-mask: linear-gradient(#000 0 0) luminance;
+            mask: linear-gradient(#000 0 0) luminance;
             
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
