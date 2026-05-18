@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links</title>
     <style>
         /* Premium Core Reset & Fluid Typography */
@@ -16,30 +16,33 @@
         }
 
         /* Ambient, True OLED Black Deep Space Layout */
-        body {
+        html, body {
             background-color: #050505;
             color: #ffffff;
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-            overflow: hidden;
+            width: 100%;
+            min-height: 100%;
+            /* Fixes scrolling blocks on Android */
+            overflow-x: hidden;
+            overflow-y: auto; 
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Using modern grid instead of flex to fix landscape centering bugs */
+        body {
+            display: grid;
+            place-items: center;
+            align-content: center;
+            padding: 60px 24px;
             position: relative;
         }
 
-        html {
-            height: -webkit-fill-available;
-        }
-
-        /* Layered Interactive Canvas for Ambient Magic Background */
+        /* Fixed Interactive Canvas for Ambient Magic Background */
         #ambient-canvas {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             z-index: 1;
             pointer-events: none;
         }
@@ -51,6 +54,7 @@
             text-align: center;
             max-width: 310px;
             width: 100%;
+            margin: 0 auto;
             animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -214,6 +218,10 @@
             canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('orientationchange', () => {
+            // Forces Android Chrome to recalculate size after structural rotation completes
+            setTimeout(resizeCanvas, 200);
+        });
         resizeCanvas();
 
         class SparkleParticle {
@@ -234,7 +242,7 @@
                 this.alpha -= this.fadeSpeed;
                 if (this.alpha <= 0 || this.y < 0) {
                     this.x = Math.random() * canvas.width;
-                    this.y = canvas.height + 10;
+                    this.y = window.innerHeight + 10;
                     this.alpha = Math.random();
                 }
             }
@@ -251,6 +259,7 @@
         }
 
         function init() {
+            particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new SparkleParticle());
             }
