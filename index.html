@@ -44,30 +44,31 @@
             animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Identity Frame */
+        /* FIXED: Isolated Stacking Context
+           This container isolates the blending layer so it blends with its container base,
+           not the global document layout.
+        */
         .avatar-assembly {
             position: relative;
             display: inline-block;
+            width: 72px;
+            height: 72px;
             margin-bottom: 64px;
-            background: transparent; /* Changed to transparent to let masking work */
+            background: #000000;
+            border-radius: 50%;
+            isolation: isolate; /* Crucial: traps the screen blend mode locally */
+            overflow: hidden;
         }
 
-        /* FIXED: Replaced unreliable mix-blend-mode with a Luminance Mask.
-           This physically maps the dark pixels of the JPG to transparent alpha channels.
-        */
         .identity-avatar { 
-            width: 72px; 
-            height: 72px; 
-            border-radius: 50%; 
-            border: none !important; 
-            outline: none !important;
+            display: block;
+            width: 100%; 
+            height: 100%; 
             object-fit: cover; 
-            background: transparent;
             
-            /* High-performance extraction of whites from dark backgrounds */
-            filter: grayscale(1) contrast(1.15) brightness(1.05);
-            -webkit-mask: linear-gradient(#000 0 0) luminance;
-            mask: linear-gradient(#000 0 0) luminance;
+            /* High-performance extraction combination */
+            filter: grayscale(1) contrast(1.4) brightness(1.1);
+            mix-blend-mode: screen; 
             
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
@@ -216,16 +217,4 @@
             <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstraps</a>
             <a href="https://instagram.com/kingfluxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
             <a href="https://instagram.com/kingchain.z" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingchainz</a>
-            <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingclique</a>
-            <a href="https://instagram.com/kingtraxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
-            <a href="https://instagram.com/ss5.me" class="interactive-node" target="_blank" rel="noopener noreferrer">@ss5.me</a>
-        </div>
-
-        <footer class="premium-footer">
-            <div class="divider-line"></div>
-            <a href="mailto:github@achleitner.de" class="contact-node">github@achleitner.de</a>
-        </footer>
-    </div>
-
-</body>
-</html>
+            <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="
