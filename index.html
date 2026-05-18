@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>achleitner.de</title>
     <style>
-        /* Force-neutralize absolute structural elements */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
             -webkit-font-smoothing: antialiased;
-            outline: none !important; /* Kills browser focus rings globally */
+            outline: none !important;
         }
 
         html, body { 
@@ -46,15 +45,24 @@
             margin-bottom: 64px;
         }
 
+        /* FIXED: Dropped base opacity to 0.55 to match the link weight */
         .identity-avatar { 
             width: 72px; 
             height: 72px; 
             border-radius: 50%; 
             filter: grayscale(1);
+            opacity: 0.55; 
             border: none !important; 
             outline: none !important;
             object-fit: cover; 
             background: transparent;
+            transition: opacity 0.4s ease, filter 0.4s ease;
+        }
+
+        /* FIXED: When the stack is interacted with, the logo wakes up too */
+        .directory-wrapper:hover .identity-avatar {
+            opacity: 1;
+            filter: grayscale(0);
         }
 
         .links-matrix { 
@@ -64,7 +72,6 @@
             margin-bottom: 72px;
         }
 
-        /* ANNIHILATION RESETS: Targeting the Instagram links explicitly */
         .interactive-node,
         .interactive-node:link,
         .interactive-node:visited,
@@ -76,8 +83,6 @@
             justify-content: center; 
             width: 100%; 
             padding: 14px 0; 
-            
-            /* FORCE ZERO OUT CODES: Destroys any default Android/iOS box artifacts */
             background: transparent !important; 
             background-color: transparent !important;
             border: 0px solid transparent !important;
@@ -85,19 +90,15 @@
             outline: 0px transparent unset !important;
             box-shadow: none !important;
             text-shadow: none !important;
-            
-            /* Typography values */
             font-size: 0.88rem; 
             font-weight: 400; 
             letter-spacing: 0.12em; 
             text-transform: lowercase; 
             text-decoration: none; 
             position: relative;
-            -webkit-tap-highlight-color: rgba(0,0,0,0) !important; /* Kills default Android blue flash box */
-            -webkit-tap-highlight-color: transparent !important;   /* Secondary WebKit execution flag */
+            -webkit-tap-highlight-color: transparent !important;   
         }
 
-        /* Default idle element text opacity color */
         .interactive-node {
             color: rgba(255, 255, 255, 0.45);     
             transition: color 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
