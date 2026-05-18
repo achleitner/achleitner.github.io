@@ -43,7 +43,7 @@
             width: 88px; 
             height: 88px; 
             border-radius: 50%; 
-            border: 1px solid rgba(255, 255, 255, 0.12); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
             background-color: #121214; 
             object-fit: cover; 
             margin-bottom: 36px;
@@ -56,39 +56,39 @@
             gap: 12px; 
         }
 
-        /* Matte Flat Mobile-Optimized Buttons */
+        /* Highly Visible Glassmorphic Matte Buttons */
         .link-btn { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 15px 20px; 
-            background: rgba(255, 255, 255, 0.03); 
-            color: rgba(255, 255, 255, 0.75); 
-            font-size: 0.92rem; 
-            font-weight: 400; 
+            padding: 16px 20px; 
+            background: rgba(255, 255, 255, 0.06); /* Increased base brightness */
+            color: rgba(255, 255, 255, 0.9);      /* Enhanced font contrast */
+            font-size: 0.94rem; 
+            font-weight: 500; 
             letter-spacing: 0.01em; 
             text-decoration: none; 
             border-radius: 12px; 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.12); /* Sharper, cleaner outline */
             cursor: pointer; 
-            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; 
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; 
             -webkit-tap-highlight-color: transparent; 
         }
 
-        /* Subtle Matte Hover Interaction Box */
+        /* Subtle High-Contrast Hover State */
         @media (hover: hover) {
             .link-btn:hover { 
-                background-color: rgba(255, 255, 255, 0.08); 
-                border-color: rgba(255, 255, 255, 0.18); 
+                background-color: rgba(255, 255, 255, 0.12); 
+                border-color: rgba(255, 255, 255, 0.4); /* Crisp border highlight */
                 color: #ffffff; 
             }
         }
 
-        /* Snappy Snug Click State */
+        /* Touch Down State */
         .link-btn:active { 
-            background-color: rgba(255, 255, 255, 0.01); 
-            border-color: rgba(255, 255, 255, 0.03);
+            background-color: rgba(255, 255, 255, 0.03); 
+            border-color: rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
