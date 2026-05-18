@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ACHLEITNER</title>
+    <title>achleitner.de</title>
     <style>
-        /* Core Reset & Non-Serif Typography */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
             -webkit-font-smoothing: antialiased;
             outline: none !important;
         }
 
-        /* Pure OLED Pitch Black Canvas */
         html, body { 
             background-color: #000000 !important;
             color: #FFFFFF; 
@@ -30,10 +28,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: clamp(60px, 12vh, 140px) 24px 60px 24px;
+            padding: clamp(60px, 10vh, 120px) 24px 60px 24px;
         }
 
-        /* Strict Typographic Container Box */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
@@ -42,27 +39,24 @@
             margin: 0 auto; 
         }
 
-        /* FIXED: Replaced image container with an ultra-premium text monogram frame */
-        .brand-monogram {
-            font-size: 2.2rem;
-            font-weight: 300; /* Sophisticated light weight */
-            letter-spacing: 0.05em;
-            color: #FFFFFF;
+        .avatar-assembly {
+            position: relative;
             display: inline-block;
             margin-bottom: 64px;
-            cursor: default;
-            user-select: none;
-            /* Faint premium ambient text shadow for a subtle "lithograph" lift */
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-            transition: transform 0.4s ease, text-shadow 0.4s ease;
         }
 
-        .brand-monogram:hover {
-            transform: scale(1.05);
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+        /* Logo remains 100% solid and uncompromised */
+        .identity-avatar { 
+            width: 72px; 
+            height: 72px; 
+            border-radius: 50%; 
+            filter: grayscale(1);
+            border: none !important; 
+            outline: none !important;
+            object-fit: cover; 
+            background: transparent;
         }
 
-        /* Directives Stream Layout */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
@@ -70,7 +64,6 @@
             margin-bottom: 72px;
         }
 
-        /* Pure Typographic Interactive Elements */
         .interactive-node,
         .interactive-node:link,
         .interactive-node:visited,
@@ -98,12 +91,12 @@
             -webkit-tap-highlight-color: transparent !important;   
         }
 
+        /* FIXED: Increased opacity from 0.45 to 0.8 for strong baseline visibility */
         .interactive-node {
             color: rgba(255, 255, 255, 0.8);     
             transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Focal Target Dot Micro-Interaction */
         .interactive-node::before {
             content: '';
             position: absolute;
@@ -118,6 +111,7 @@
         }
 
         @media (hover: hover) {
+            /* Hover pops cleanly to absolute white (#FFF) */
             .interactive-node:hover { 
                 color: #FFFFFF !important; 
                 transform: translateX(6px); 
@@ -130,6 +124,7 @@
                 transform: scale(1);
             }
 
+            /* Still isolates focus by softening the unhovered links */
             .links-matrix:hover .interactive-node:not(:hover) {
                 opacity: 0.35;
             }
@@ -142,7 +137,6 @@
             border: none !important;
         }
 
-        /* Structural Footer Platform */
         .premium-footer {
             display: flex;
             flex-direction: column;
@@ -177,7 +171,9 @@
 <body>
 
     <div class="directory-wrapper">
-        <div class="brand-monogram">A</div>
+        <div class="avatar-assembly">
+            <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
+        </div>
         
         <div class="links-matrix">
             <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
