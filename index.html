@@ -31,7 +31,8 @@
             display: grid; 
             place-items: center; 
             align-content: center; 
-            padding: 60px 24px; 
+            padding: 60px 24px 40px 24px; /* Slightly adjusted padding to make room for footer */
+            position: relative;
         }
 
         /* Controlled Container */
@@ -59,6 +60,7 @@
             display: flex; 
             flex-direction: column; 
             gap: 14px; 
+            margin-bottom: 48px; /* Added spacing between buttons and footer */
         }
 
         /* High-Visibility Premium Charcoal Buttons */
@@ -68,7 +70,6 @@
             justify-content: center; 
             width: 100%; 
             padding: 16px 24px; 
-            /* FIXED: Bumped background color up to a visible dark charcoal titanium shade */
             background: rgba(255, 255, 255, 0.07); 
             color: rgba(255, 255, 255, 0.9);      
             font-size: 0.94rem; 
@@ -77,7 +78,6 @@
             text-transform: lowercase; 
             text-decoration: none; 
             border-radius: 16px; 
-            /* FIXED: Strengthened border line alpha so boundaries pop instantly */
             border: 1px solid rgba(255, 255, 255, 0.14); 
             cursor: pointer; 
             position: relative;
@@ -111,6 +111,41 @@
             border-color: rgba(255, 255, 255, 0.1);
             transition: transform 0.1s ease;
         }
+
+        /* Minimalist Footer Architecture */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Scaled, Muted HTML5 Inline SVG Icon */
+        .html5-logo {
+            width: 20px;
+            height: 20px;
+            fill: rgba(255, 255, 255, 0.25); /* Subtle grey tone */
+            transition: fill 0.3s ease;
+        }
+
+        /* Understated Email Link */
+        .email-link {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .email-link:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+            .footer:hover .html5-logo {
+                fill: rgba(255, 255, 255, 0.5); /* Brightens smoothly when hovering area */
+            }
+        }
     </style>
 </head>
 <body>
@@ -127,6 +162,13 @@
             <a href="https://instagram.com/kingtraxx.x" class="link-btn" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
             <a href="https://instagram.com/ss5.me" class="link-btn" target="_blank" rel="noopener noreferrer">@ss5.me</a>
         </div>
+
+        <footer class="footer">
+            <svg class="html5-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M64 32l36.4 406 155.6 42 155.4-42L448 32H64zm291.2 147.2l-7.4 80H179.8l5.2 57.6 71 19.2 71.2-19.2 7.4-82.4H212.4l-5.4-55.2h183.8l10.6-118.4H114.6l5.4 55.2h235.2z"/>
+            </svg>
+            <a href="mailto:github@achleitner.de" class="email-link">github@achleitner.de</a>
+        </footer>
     </div>
 
 </body>
