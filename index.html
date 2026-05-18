@@ -45,24 +45,16 @@
             margin-bottom: 64px;
         }
 
-        /* FIXED: Dropped base opacity to 0.55 to match the link weight */
+        /* Logo remains 100% solid and uncompromised */
         .identity-avatar { 
             width: 72px; 
             height: 72px; 
             border-radius: 50%; 
             filter: grayscale(1);
-            opacity: 0.55; 
             border: none !important; 
             outline: none !important;
             object-fit: cover; 
             background: transparent;
-            transition: opacity 0.4s ease, filter 0.4s ease;
-        }
-
-        /* FIXED: When the stack is interacted with, the logo wakes up too */
-        .directory-wrapper:hover .identity-avatar {
-            opacity: 1;
-            filter: grayscale(0);
         }
 
         .links-matrix { 
@@ -99,9 +91,10 @@
             -webkit-tap-highlight-color: transparent !important;   
         }
 
+        /* FIXED: Increased opacity from 0.45 to 0.8 for strong baseline visibility */
         .interactive-node {
-            color: rgba(255, 255, 255, 0.45);     
-            transition: color 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+            color: rgba(255, 255, 255, 0.8);     
+            transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
         }
 
         .interactive-node::before {
@@ -114,10 +107,11 @@
             background-color: #FFFFFF;
             opacity: 0;
             transform: scale(0);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
 
         @media (hover: hover) {
+            /* Hover pops cleanly to absolute white (#FFF) */
             .interactive-node:hover { 
                 color: #FFFFFF !important; 
                 transform: translateX(6px); 
@@ -130,14 +124,14 @@
                 transform: scale(1);
             }
 
+            /* Still isolates focus by softening the unhovered links */
             .links-matrix:hover .interactive-node:not(:hover) {
-                opacity: 0.25;
-                color: rgba(255, 255, 255, 0.2);
+                opacity: 0.35;
             }
         }
 
         .interactive-node:active { 
-            color: rgba(255, 255, 255, 0.3) !important;
+            color: rgba(255, 255, 255, 0.5) !important;
             transform: translateX(4px);
             background: transparent !important;
             border: none !important;
@@ -153,23 +147,23 @@
         .divider-line {
             width: 16px;
             height: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .contact-node {
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.68rem;
             font-weight: 500;
             letter-spacing: 0.15em;
             text-decoration: none;
             text-transform: uppercase;
-            transition: color 0.4s ease;
+            transition: color 0.3s ease;
             -webkit-tap-highlight-color: transparent;
         }
 
         @media (hover: hover) {
             .contact-node:hover {
-                color: rgba(255, 255, 255, 0.5);
+                color: rgba(255, 255, 255, 0.8);
             }
         }
     </style>
