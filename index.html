@@ -5,163 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>achleitner.de</title>
     <style>
-        /* Modern Reset & Fluid Monospace Archetype */
+        /* Modern Reset & System Fonts */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            outline: none !important;
         }
 
-        /* Ambient True Black Canvas */
+        /* True OLED Pitch Black Background */
         html, body { 
-            background-color: #000000;
+            background-color: #000000 !important;
             color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow-x: hidden; 
+            overflow-y: auto; 
         }
 
         body { 
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: clamp(80px, 15vh, 160px) 24px 48px 24px;
-            /* Subtle dark-mode depth layer */
-            background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+            justify-content: flex-start;
+            padding: clamp(60px, 12vh, 140px) 24px 60px 24px;
         }
 
-        /* Monolith Wrapper */
+        /* UI Container Box */
         .directory-wrapper { 
             position: relative;
             text-align: center; 
-            max-width: 320px; 
+            max-width: 280px; 
             width: 100%; 
-            margin: auto 0;
-            animation: premiumEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            margin: 0 auto; 
+            animation: suiteEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Identity Token Frame */
+        /* Identity Frame */
         .avatar-assembly {
             position: relative;
             display: inline-block;
-            width: 80px;
-            height: 80px;
-            margin-bottom: 56px;
-            background: #000000;
-            border-radius: 50%;
-            isolation: isolate;
-            overflow: hidden;
-            /* Subtle high-end rim lighting shadow */
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+            margin-bottom: 64px;
+            background: #000000; /* Anchor base black background */
         }
 
+        /* FIXED: Added mix-blend-mode filtering rules.
+           This tells the browser to drop dark pixels and map light pixels to true transparency.
+        */
         .identity-avatar { 
-            display: block;
-            width: 100%; 
-            height: 100%; 
+            width: 72px; 
+            height: 72px; 
+            border-radius: 50%; 
+            border: none !important; 
+            outline: none !important;
             object-fit: cover; 
-            filter: grayscale(1) contrast(1.3) brightness(1.05);
+            background: #000000;
+            
+            /* The UX Magic Trick: Forces the off-black image parts to turn completely see-through */
             mix-blend-mode: screen; 
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
 
         .avatar-assembly:hover .identity-avatar {
-            transform: scale(1.08);
+            transform: scale(1.04);
+            opacity: 0.9;
         }
 
-        /* Typographic Interactive Node Matrix */
+        /* Directives Stream Layout */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
-            gap: 4px; 
-            margin-bottom: 56px;
+            gap: 2px; 
+            margin-bottom: 72px;
         }
 
-        .interactive-node { 
+        /* Pure Typographic Interactive Elements */
+        .interactive-node,
+        .interactive-node:link,
+        .interactive-node:visited,
+        .interactive-node:hover,
+        .interactive-node:active,
+        .interactive-node:focus { 
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 12px 0; 
-            background: transparent;
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 0.84rem; 
+            padding: 14px 0; 
+            background: transparent !important; 
+            background-color: transparent !important;
+            border: 0px solid transparent !important;
+            border-style: none !important;
+            outline: 0px transparent unset !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            font-size: 0.88rem; 
             font-weight: 400; 
-            letter-spacing: 0.14em; 
+            letter-spacing: 0.12em; 
             text-transform: lowercase; 
             text-decoration: none; 
             position: relative;
-            -webkit-tap-highlight-color: transparent;   
-            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        text-shadow 0.4s ease;
+            -webkit-tap-highlight-color: transparent !important;   
         }
 
-        /* Dynamic Blurring Hover Effect Map */
+        .interactive-node {
+            color: rgba(255, 255, 255, 0.8);     
+            transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Focal Target Dot Micro-Interaction */
+        .interactive-node::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
         @media (hover: hover) {
             .interactive-node:hover { 
-                color: #FFFFFF;
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+                color: #FFFFFF !important; 
+                transform: translateX(6px); 
+                background: transparent !important;
+                border: none !important;
             }
 
-            /* Dim alternative items slightly when hovering one to draw strict focus */
+            .interactive-node:hover::before {
+                opacity: 1;
+                transform: scale(1);
+            }
+
             .links-matrix:hover .interactive-node:not(:hover) {
-                opacity: 0.25;
+                opacity: 0.35;
+                color: rgba(255, 255, 255, 0.2);
             }
         }
 
         .interactive-node:active { 
-            color: rgba(255, 255, 255, 0.4);
-            transition: color 0.1s ease;
+            color: rgba(255, 255, 255, 0.5) !important;
+            transform: translateX(4px);
+            background: transparent !important;
+            border: none !important;
         }
 
-        /* Architectural Footer Grid */
+        /* Structural Footer Platform */
         .premium-footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 24px;
-            margin-top: auto;
+            gap: 20px;
+        }
+
+        .divider-line {
+            width: 16px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .contact-node {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.64rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.68rem;
             font-weight: 500;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             text-decoration: none;
             text-transform: uppercase;
-            padding: 8px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 100px;
-            background: rgba(255, 255, 255, 0.01);
-            transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease;
             -webkit-tap-highlight-color: transparent;
         }
 
         @media (hover: hover) {
             .contact-node:hover {
                 color: rgba(255, 255, 255, 0.8);
-                border-color: rgba(255, 255, 255, 0.2);
-                background: rgba(255, 255, 255, 0.04);
             }
         }
 
-        /* Premium Smooth Kinematic Entry Animation */
-        @keyframes premiumEntry {
+        /* Entry Animation Sequence */
+        @keyframes suiteEntry {
             from { 
                 opacity: 0; 
-                filter: blur(8px) brightness(0.5);
-                transform: translateY(20px); 
+                filter: blur(4px);
+                transform: translateY(12px); 
             }
             to { 
                 opacity: 1; 
-                filter: blur(0) brightness(1);
+                filter: blur(0);
                 transform: translateY(0); 
             }
         }
@@ -170,13 +205,11 @@
 <body>
 
     <div class="directory-wrapper">
-        <header>
-            <div class="avatar-assembly">
-                <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
-            </div>
-        </header>
+        <div class="avatar-assembly">
+            <img class="identity-avatar" src="https://github.com/achleitner.png" alt="Identity Avatar">
+        </div>
         
-        <main class="links-matrix">
+        <div class="links-matrix">
             <a href="https://github.com/achleitner" class="interactive-node" target="_blank" rel="noopener noreferrer">github</a>
             <a href="https://instagram.com/kingstrapscom" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingstraps</a>
             <a href="https://instagram.com/kingfluxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingfluxxx</a>
@@ -184,9 +217,10 @@
             <a href="https://instagram.com/kingclique" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingclique</a>
             <a href="https://instagram.com/kingtraxx.x" class="interactive-node" target="_blank" rel="noopener noreferrer">@kingtraxxx</a>
             <a href="https://instagram.com/ss5.me" class="interactive-node" target="_blank" rel="noopener noreferrer">@ss5.me</a>
-        </main>
+        </div>
 
         <footer class="premium-footer">
+            <div class="divider-line"></div>
             <a href="mailto:github@achleitner.de" class="contact-node">github@achleitner.de</a>
         </footer>
     </div>
