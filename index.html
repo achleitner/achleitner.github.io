@@ -53,85 +53,42 @@
         .links-stack { 
             display: flex; 
             flex-direction: column; 
-            gap: 16px; /* Slightly increased gap to allow room for outer glows */
+            gap: 12px; 
         }
 
-        /* Premium Rainbow Glowing Buttons */
+        /* Highly Visible Glassmorphic Matte Buttons */
         .link-btn { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             width: 100%; 
             padding: 16px 20px; 
-            background: #0d0d10;
-            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06); /* Increased base brightness */
+            color: rgba(255, 255, 255, 0.9);      /* Enhanced font contrast */
             font-size: 0.94rem; 
             font-weight: 500; 
             letter-spacing: 0.01em; 
             text-decoration: none; 
             border-radius: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.12); /* Sharper, cleaner outline */
             cursor: pointer; 
-            position: relative;
-            z-index: 1;
-            
-            /* Attaches the rainbow hue cycle and fade timelines directly */
-            animation: rainbow-glow 8s linear infinite, fade-pulse 6s ease-in-out infinite;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; 
             -webkit-tap-highlight-color: transparent; 
         }
 
-        /* Staggered animation delays to make the cycles shift randomly */
-        .links-stack a:nth-child(1) { animation-delay: 0.0s, 0.5s; }
-        .links-stack a:nth-child(2) { animation-delay: -1.5s, -2.0s; }
-        .links-stack a:nth-child(3) { animation-delay: -3.0s, -1.0s; }
-        .links-stack a:nth-child(4) { animation-delay: -4.5s, -3.5s; }
-        .links-stack a:nth-child(5) { animation-delay: -2.0s, -5.0s; }
-        .links-stack a:nth-child(6) { animation-delay: -6.0s, -1.5s; }
-        .links-stack a:nth-child(7) { animation-delay: -3.5s, -0.0s; }
-
-        /* TIMELINE 1: Slow Rainbow Hue & Border Rotation */
-        @keyframes rainbow-glow {
-            0% {
-                border: 1px solid #ff3366;
-                box-shadow: 0 0 12px rgba(2ff, 51, 102, 0.35);
-            }
-            20% {
-                border: 1px solid #ff9933;
-                box-shadow: 0 0 12px rgba(255, 153, 51, 0.35);
-            }
-            40% {
-                border: 1px solid #33cc66;
-                box-shadow: 0 0 12px rgba(51, 204, 102, 0.35);
-            }
-            60% {
-                border: 1px solid #3399ff;
-                box-shadow: 0 0 12px rgba(51, 153, 255, 0.35);
-            }
-            80% {
-                border: 1px solid #9933ff;
-                box-shadow: 0 0 12px rgba(153, 51, 255, 0.35);
-            }
-            100% {
-                border: 1px solid #ff3366;
-                box-shadow: 0 0 12px rgba(255, 51, 102, 0.35);
+        /* Subtle High-Contrast Hover State */
+        @media (hover: hover) {
+            .link-btn:hover { 
+                background-color: rgba(255, 255, 255, 0.12); 
+                border-color: rgba(255, 255, 255, 0.4); /* Crisp border highlight */
+                color: #ffffff; 
             }
         }
 
-        /* TIMELINE 2: Ambient Brightness Breathing Fade (In & Out) */
-        @keyframes fade-pulse {
-            0%, 100% {
-                opacity: 0.65;
-                filter: brightness(0.8) contrast(0.9);
-            }
-            50% {
-                opacity: 1;
-                filter: brightness(1.2) contrast(1.1);
-            }
-        }
-
-        /* Responsive Mobile Touch Feedback Scaling */
+        /* Touch Down State */
         .link-btn:active { 
-            transform: scale(0.97);
-            filter: brightness(0.7);
+            background-color: rgba(255, 255, 255, 0.03); 
+            border-color: rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
