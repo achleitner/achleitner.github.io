@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ACHLEITNER — Ava AI Workspace</title>
     <style>
+        /* Modern Reset & Fluid Monospace Archetype */
         * { 
             box-sizing: border-box; 
             margin: 0; 
@@ -16,41 +17,48 @@
 
         :root {
             --bg-dark: #000000;
-            --card-border: rgba(255, 255, 255, 0.08);
+            --card-bg: #0c0e12;
+            --card-border: #1e222b;
+            --card-border-hover: #333a48;
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
             --accent-cyan: #06b6d4;
             --accent-amber: #f59e0b;
+            --accent-green: #10b981;
+            --accent-purple: #c084fc;
+            --accent-red: #ef4444;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
         }
 
         html { scroll-behavior: smooth; }
 
+        /* Ambient True Black Canvas */
         html, body { 
-            background-color: var(--bg-dark);
-            color: var(--text-main); 
+            background-color: #000000;
+            color: #FFFFFF; 
             width: 100%; 
             min-height: 100%; 
             overflow-x: hidden;
+            overflow-y: auto;
         }
 
         /* ------------------------------------------------------------- */
-        /* PRIMARY IDENTITY SECTION (ACHLEITNER LINK MATRIX)             */
+        /* EXACT ORIGINAL TOP IDENTITY MENU (UNTOUCHED STYLING)          */
         /* ------------------------------------------------------------- */
-        .identity-section { 
+        .identity-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             min-height: 100vh;
-            padding: clamp(60px, 10vh, 120px) 24px;
+            padding: clamp(80px, 15vh, 160px) 24px 60px 24px;
             background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
         }
 
         .directory-wrapper { 
             position: relative;
             text-align: center; 
-            max-width: 340px; 
+            max-width: 320px; 
             width: 100%; 
             margin: auto 0;
             animation: premiumEntry 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -61,12 +69,12 @@
             display: inline-block;
             width: 80px;
             height: 80px;
-            margin-bottom: 48px;
+            margin-bottom: 56px;
             background: #000000;
             border-radius: 50%;
             isolation: isolate;
             overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
         .identity-avatar { 
@@ -84,13 +92,8 @@
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
-            gap: 6px; 
-            margin-bottom: 56px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 8px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
+            gap: 4px; 
+            margin-bottom: 72px;
         }
 
         .interactive-node { 
@@ -98,39 +101,42 @@
             align-items: center; 
             justify-content: center; 
             width: 100%; 
-            padding: 10px 0; 
-            border-radius: 10px;
+            padding: 12px 0; 
             background: transparent;
             color: rgba(255, 255, 255, 0.55);
-            font-size: 0.82rem; 
+            font-size: 0.84rem; 
             font-weight: 400; 
-            letter-spacing: 0.12em; 
+            letter-spacing: 0.14em; 
             text-transform: lowercase; 
             text-decoration: none; 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            -webkit-tap-highlight-color: transparent;   
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        text-shadow 0.4s ease;
         }
 
         .interactive-node.flagship {
             color: var(--accent-cyan);
             font-weight: 600;
-            letter-spacing: 0.16em;
-            background: rgba(6, 182, 212, 0.06);
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            letter-spacing: 0.18em;
         }
 
         @media (hover: hover) {
             .interactive-node:hover { 
                 color: #FFFFFF;
-                background: rgba(255, 255, 255, 0.06);
                 text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
             }
             .interactive-node.flagship:hover {
-                color: #FFFFFF;
-                background: rgba(6, 182, 212, 0.15);
-                border-color: rgba(6, 182, 212, 0.4);
-                box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+                color: var(--accent-cyan);
+                text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
             }
-            .links-matrix:hover .interactive-node:not(:hover) { opacity: 0.4; }
+            .links-matrix:hover .interactive-node:not(:hover) { opacity: 0.25; }
+        }
+
+        .interactive-node:active { 
+            color: rgba(255, 255, 255, 0.4);
+            transition: color 0.1s ease;
         }
 
         .premium-footer {
@@ -140,7 +146,11 @@
             gap: 20px;
         }
 
-        .divider-line { width: 16px; height: 1px; background-color: rgba(255, 255, 255, 0.15); }
+        .divider-line {
+            width: 16px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
 
         .contact-node {
             color: rgba(255, 255, 255, 0.35);
@@ -150,11 +160,15 @@
             text-decoration: none;
             text-transform: uppercase;
             transition: color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
-        .contact-node:hover { color: rgba(255, 255, 255, 0.75); }
+
+        @media (hover: hover) {
+            .contact-node:hover { color: rgba(255, 255, 255, 0.75); }
+        }
 
         /* ------------------------------------------------------------- */
-        /* AVA SHOWCASE SECTION & HERO HEADINGS                           */
+        /* AVA SHOWCASE SECTION & CONTENT BODY                           */
         /* ------------------------------------------------------------- */
 
         .ava-showcase {
@@ -164,7 +178,12 @@
         }
 
         .container { max-width: 1040px; margin: 0 auto; }
-        
+
+        .ava-hero-text {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
         .badge-amber {
             display: inline-flex;
             align-items: center;
@@ -177,11 +196,6 @@
             background: rgba(245, 158, 11, 0.1);
             color: var(--accent-amber);
             border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .ava-hero-text {
-            text-align: center;
-            margin-bottom: 2.5rem;
         }
 
         .ava-hero-text h2 {
@@ -221,9 +235,7 @@
             box-shadow: 0 6px 24px rgba(255, 255, 255, 0.25);
         }
 
-        /* ------------------------------------------------------------- */
-        /* MODERN GLASS CONTROL MENU (TAB SWITCHER)                      */
-        /* ------------------------------------------------------------- */
+        /* Glass Tab Switcher */
         .ui-switcher-wrapper {
             display: flex;
             justify-content: center;
@@ -258,7 +270,7 @@
         }
 
         .tab-btn:hover {
-            color: var(--text-main);
+            color: #ffffff;
             background: rgba(255, 255, 255, 0.05);
         }
 
@@ -269,9 +281,7 @@
             box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
         }
 
-        /* ------------------------------------------------------------- */
-        /* CLEAN SHARP SCREENSHOT CONTAINER (PRESERVES MACOS CORNERS)    */
-        /* ------------------------------------------------------------- */
+        /* Clean Unclipped Screenshot Stage (Constrained Scale Fix) */
         .screenshot-frame {
             background: transparent;
             border: none;
@@ -279,8 +289,8 @@
             border-radius: 0;
             overflow: visible;
             position: relative;
-            max-width: 760px; /* Constrained scale eliminates blur & pixelation */
-            margin: 0 auto;
+            max-width: 760px; /* Reduces pixelation blur while keeping macOS rounded corners transparent */
+            margin: 0 auto 5rem;
         }
 
         .app-img {
@@ -301,19 +311,118 @@
         
         .tab-panel.active { display: block; }
 
+        /* Feature Cards Grid */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            border-color: var(--card-border-hover);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        /* Deep Specifications Section */
+        .spec-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .spec-item h5 {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .spec-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes premiumEntry { from { opacity: 0; filter: blur(8px); transform: translateY(20px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+        @keyframes premiumEntry {
+            from { 
+                opacity: 0; 
+                filter: blur(8px) brightness(0.5);
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                filter: blur(0) brightness(1);
+                transform: translateY(0); 
+            }
+        }
 
         @media (max-width: 768px) {
             .ui-switcher-wrapper { justify-content: flex-start; }
             .ui-switcher { border-radius: 14px; padding: 4px; }
             .tab-btn { border-radius: 8px; }
+            .spec-box { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Primary Identity Landing -->
+    <!-- Primary Identity Section (Exact Original ACHLEITNER Layout & Menu) -->
     <section class="identity-section">
         <div class="directory-wrapper">
             <header>
@@ -340,7 +449,7 @@
         </div>
     </section>
 
-    <!-- Ava Real Screenshot Showcase -->
+    <!-- Ava Real Screenshot & Content Showcase Section -->
     <section class="ava-showcase" id="ava">
         <div class="container">
             <div class="ava-hero-text">
@@ -353,7 +462,7 @@
                 </a>
             </div>
 
-            <!-- Sleek Glass Pill Menu Switcher -->
+            <!-- Sleek Glass Tab Switcher -->
             <div class="ui-switcher-wrapper">
                 <div class="ui-switcher">
                     <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">💻 Terminal Interface</button>
@@ -369,7 +478,7 @@
                 </div>
             </div>
 
-            <!-- Clean Screenshot Stage targeting assets/*.png -->
+            <!-- Crisp Screenshot Viewer (Native macOS rounded corners without cutoffs or pixelation) -->
             <div class="screenshot-frame">
                 <div id="tab-terminal" class="tab-panel active">
                     <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.32.png" alt="Ava Terminal Interface">
@@ -411,10 +520,78 @@
                     <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.08.png" alt="Ava Engine Config & Overrides">
                 </div>
             </div>
+
+            <!-- Deep Architectural Content & Feature Cards -->
+            <div class="section-header">
+                <h3>Built for Agentic Precision</h3>
+                <p>Bridging desktop workflows with Google Gemini 3.7 models, live voice streams, and MCP servers.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="card">
+                    <span class="card-icon">🧠</span>
+                    <h4>Multimodal AI & Deep Research</h4>
+                    <p>Dynamic model toggling between <code>3.7 Flash</code> for automation speed and <code>3.1 Pro</code> for deep reasoning. Generates text, code, images, videos (Veo 3.1), and audio (Lyria 3).</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🔲</span>
+                    <h4>Visual Pipeline Canvas (DAG Engine)</h4>
+                    <p>Build Directed Acyclic Graphs visually. Chain <code>Input</code>, <code>AI Prompt</code>, <code>API Request</code>, <code>Python Code</code>, <code>MCP Tool</code>, and <code>Router</code> nodes seamlessly.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🔍</span>
+                    <h4>Advanced Vector Retrieval & Grounding</h4>
+                    <p>Cloud vector store indexing (<code>file_search_stores</code>) with multi-query semantic expansion and chronological "Connect Dots" map-reduce re-ranking.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🔌</span>
+                    <h4>Model Context Protocol (MCP) Hub</h4>
+                    <p>Connect external stdio or REST/SSE MCP servers (Pythia Oracle, Financial Datasets, DeepWiki). Automates conversion into native Gemini function declarations.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🎙️</span>
+                    <h4>Multimodal Voice & Dictation</h4>
+                    <p>Native WebSocket integration delivering real-time speech-to-text dictation and duplex interactive voice communication with low latency.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">⚙️</span>
+                    <h4>Desktop GUI Automation & Watchers</h4>
+                    <p>Integrated <code>ScreenCaptureKit</code> window capture for instant visual audits alongside directory drop-folder watchers that trigger visual DAG flows.</p>
+                </div>
+            </div>
+
+            <!-- Specs & Telemetry Summary Box -->
+            <div class="spec-box">
+                <h3 style="font-size: 1.4rem; font-weight: 700;">Engine Overrides & Telemetry</h3>
+                <div class="spec-grid">
+                    <div class="spec-item">
+                        <h5>Model & Thinking Budget</h5>
+                        <p>Fine-tune reasoning turns with Min, Low, Med, and High thinking budgets directly per execution thread.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h5>Retrieval & KB Depth</h5>
+                        <p>Configure vector search recall from 1 to 50 chunks with multi-query variations enabled on demand.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h5>Token & Latency Tracking</h5>
+                        <p>Live telemetry displaying active request counts, total tokens consumed, time saved, and heaviest query profiles.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h5>macOS Native Stack</h5>
+                        <p>Built with SwiftUI, SwiftData, AppKit, and ScreenCaptureKit paired with a Python 3 async engine runtime.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Tab Switching Script -->
+    <!-- Interactive Tab Switching Script -->
     <script>
         function switchTab(panelId, btnElement) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
