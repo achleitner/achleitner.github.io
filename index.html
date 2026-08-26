@@ -17,16 +17,13 @@
 
         :root {
             --bg-dark: #000000;
-            --card-bg: #0c0e12;
-            --card-border: #1e222b;
-            --card-border-hover: #333a48;
+            --card-bg: #07080b;
+            --card-border: rgba(255, 255, 255, 0.07);
+            --card-border-hover: rgba(6, 182, 212, 0.35);
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
             --accent-cyan: #06b6d4;
             --accent-amber: #f59e0b;
-            --accent-green: #10b981;
-            --accent-purple: #c084fc;
-            --accent-red: #ef4444;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
         }
 
@@ -43,7 +40,7 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* EXACT ORIGINAL TOP IDENTITY MENU (UNTOUCHED STYLING)          */
+        /* ORIGINAL TOP IDENTITY MENU (EXACT & UNTOUCHED)               */
         /* ------------------------------------------------------------- */
         .identity-section {
             display: flex;
@@ -168,98 +165,103 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* AVA SHOWCASE SECTION & CONTENT BODY                           */
+        /* AVA SHOWCASE SECTION — SPACIOUS, SLEEK & SMOOTH              */
         /* ------------------------------------------------------------- */
 
         .ava-showcase {
-            border-top: 1px solid var(--card-border);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             background: #000000;
-            padding: 5rem 1.5rem 8rem;
+            padding: 7rem 2rem 10rem;
         }
 
-        .container { max-width: 1040px; margin: 0 auto; }
+        .container { max-width: 1140px; margin: 0 auto; }
 
         .ava-hero-text {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
         }
 
         .badge-amber {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 0.3rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             border-radius: 999px;
             font-size: 0.72rem;
             font-family: var(--font-mono);
             font-weight: 600;
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(245, 158, 11, 0.08);
             color: var(--accent-amber);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            letter-spacing: 0.02em;
         }
 
         .ava-hero-text h2 {
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            letter-spacing: -1.2px;
-            margin: 1.2rem 0;
-            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+            letter-spacing: -1.5px;
+            margin: 1.25rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .ava-hero-text p {
-            max-width: 680px;
-            margin: 0 auto 1.75rem;
+            max-width: 700px;
+            margin: 0 auto 2.25rem;
             color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            line-height: 1.65;
         }
 
         .btn-github {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 0.7rem 1.6rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 999px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             text-decoration: none;
             background: #ffffff;
             color: #000000;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-            transition: all 0.2s ease;
+            box-shadow: 0 4px 25px rgba(255, 255, 255, 0.12);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .btn-github:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.22);
         }
 
-        /* Glass Tab Switcher */
+        /* Fluid Pill Navigation Bar (Non-cramped Switcher) */
         .ui-switcher-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
+            width: 100%;
         }
 
         .ui-switcher {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 4px;
-            padding: 6px;
-            background: rgba(255, 255, 255, 0.03);
+            gap: 6px;
+            padding: 6px 8px;
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 999px;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
             overflow-x: auto;
             max-width: 100%;
+            scrollbar-width: none; /* Firefox */
         }
+
+        .ui-switcher::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
         .tab-btn {
             background: transparent;
             border: 1px solid transparent;
             color: var(--text-muted);
-            padding: 7px 15px;
+            padding: 8px 16px;
             border-radius: 999px;
             font-family: var(--font-mono);
             font-size: 0.76rem;
@@ -276,12 +278,12 @@
 
         .tab-btn.active {
             color: #ffffff;
-            background: rgba(6, 182, 212, 0.18);
+            background: rgba(6, 182, 212, 0.15);
             border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+            box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
         }
 
-        /* Clean Unclipped Screenshot Stage (Constrained Scale Fix) */
+        /* High-Res Screen Stage (Expanded for max crispness & breathing room) */
         .screenshot-frame {
             background: transparent;
             border: none;
@@ -289,8 +291,8 @@
             border-radius: 0;
             overflow: visible;
             position: relative;
-            max-width: 760px; /* Reduces pixelation blur while keeping macOS rounded corners transparent */
-            margin: 0 auto 5rem;
+            max-width: 960px; /* Expanded stage prevents cramped tiny window feel */
+            margin: 0 auto 7rem;
         }
 
         .app-img {
@@ -301,104 +303,112 @@
             background: transparent;
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.95));
         }
 
         .tab-panel { 
             display: none; 
-            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
         }
         
         .tab-panel.active { display: block; }
 
-        /* Feature Cards Grid */
+        /* Feature Section Header */
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-header h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
         }
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1.05rem;
         }
 
+        /* Spacious Feature Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 7rem;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.75rem;
-            transition: all 0.25s ease;
+            border-radius: 16px;
+            padding: 2.25rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card:hover {
             border-color: var(--card-border-hover);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .card-icon {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
             display: inline-block;
         }
 
         .card h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
             color: #ffffff;
+            letter-spacing: -0.3px;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.55;
+            font-size: 0.925rem;
+            line-height: 1.6;
         }
 
-        /* Deep Specifications Section */
+        /* Architectural Specifications Panel */
         .spec-box {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
+            border-radius: 20px;
+            padding: 3.5rem;
+            margin-bottom: 3rem;
         }
 
         .spec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
 
         .spec-item h5 {
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--accent-cyan);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .spec-item p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.925rem;
+            line-height: 1.6;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(8px) scale(0.995); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
+        }
+        
         @keyframes premiumEntry {
             from { 
                 opacity: 0; 
@@ -413,10 +423,12 @@
         }
 
         @media (max-width: 768px) {
+            .ava-showcase { padding: 4rem 1.25rem 6rem; }
             .ui-switcher-wrapper { justify-content: flex-start; }
             .ui-switcher { border-radius: 14px; padding: 4px; }
-            .tab-btn { border-radius: 8px; }
-            .spec-box { padding: 1.5rem; }
+            .tab-btn { border-radius: 8px; padding: 6px 12px; }
+            .spec-box { padding: 2rem 1.5rem; }
+            .features-grid { gap: 1.25rem; }
         }
     </style>
 </head>
@@ -478,7 +490,7 @@
                 </div>
             </div>
 
-            <!-- Crisp Screenshot Viewer (Native macOS rounded corners without cutoffs or pixelation) -->
+            <!-- Crisp Screenshot Stage (960px Fluid Stage) -->
             <div class="screenshot-frame">
                 <div id="tab-terminal" class="tab-panel active">
                     <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.32.png" alt="Ava Terminal Interface">
@@ -521,7 +533,7 @@
                 </div>
             </div>
 
-            <!-- Deep Architectural Content & Feature Cards -->
+            <!-- Architectural Features -->
             <div class="section-header">
                 <h3>Built for Agentic Precision</h3>
                 <p>Bridging desktop workflows with Google Gemini 3.7 models, live voice streams, and MCP servers.</p>
@@ -565,9 +577,9 @@
                 </div>
             </div>
 
-            <!-- Specs & Telemetry Summary Box -->
+            <!-- Telemetry & System Specifications -->
             <div class="spec-box">
-                <h3 style="font-size: 1.4rem; font-weight: 700;">Engine Overrides & Telemetry</h3>
+                <h3 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;">Engine Overrides & Telemetry</h3>
                 <div class="spec-grid">
                     <div class="spec-item">
                         <h5>Model & Thinking Budget</h5>
@@ -583,7 +595,7 @@
                     </div>
                     <div class="spec-item">
                         <h5>macOS Native Stack</h5>
-                        <p>Built with SwiftUI, SwiftData, AppKit, and ScreenCaptureKit paired with a Python 3 async engine runtime.</p>
+                        <p>Built with SwiftUI, SwiftData, AppKit, and ScreenCaptureKit paired with an async Python 3 backend engine.</p>
                     </div>
                 </div>
             </div>
@@ -591,7 +603,7 @@
         </div>
     </section>
 
-    <!-- Interactive Tab Switching Script -->
+    <!-- Tab Switching Script -->
     <script>
         function switchTab(panelId, btnElement) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
