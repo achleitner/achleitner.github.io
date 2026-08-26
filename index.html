@@ -15,7 +15,6 @@
 
         :root {
             --bg-dark: #000000;
-            --card-bg: #0c0e12;
             --card-border: #1e222b;
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
@@ -139,7 +138,7 @@
 
         .ava-showcase {
             border-top: 1px solid var(--card-border);
-            background: #040507;
+            background: #000000;
             padding: 5rem 1.5rem 8rem;
         }
 
@@ -180,13 +179,13 @@
             line-height: 1.6;
         }
 
-        /* Screenshot View Switcher Tabs */
+        /* Switcher Tabs */
         .ui-switcher {
             display: flex;
             justify-content: center;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .tab-btn {
@@ -207,24 +206,32 @@
             background: #141822;
         }
 
-        /* Screenshot Frame */
+        /* Seamless Transparent Frame for Screenshots */
         .screenshot-frame {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.95);
+            background: #000000;
+            border-radius: 28px;
             overflow: hidden;
             position: relative;
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9);
         }
 
         .app-img {
             display: block;
             width: 100%;
             height: auto;
-            border-radius: 14px;
+            border-radius: 24px;
+            /* Ensures smooth anti-aliased edges over pure black */
+            overflow: hidden;
+            transform: translateZ(0);
         }
 
-        .tab-panel { display: none; animation: fadeIn 0.3s ease forwards; }
+        .tab-panel { 
+            display: none; 
+            border-radius: 24px;
+            overflow: hidden;
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+        }
+        
         .tab-panel.active { display: block; }
 
         .btn-github {
@@ -241,7 +248,7 @@
         }
         .btn-github:hover { opacity: 0.9; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes premiumEntry { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -298,7 +305,7 @@
                 <button class="tab-btn" onclick="switchTab('tab-config', this)">🎛️ Model Config</button>
             </div>
 
-            <!-- Screenshot Window Frame targeting assets/ directory -->
+            <!-- Screenshot Window Frame pointing cleanly to assets/ -->
             <div class="screenshot-frame">
                 <div id="tab-terminal" class="tab-panel active">
                     <img class="app-img" src="assets/Screenshot 2026-08-26 at 20.19.32.png" alt="Ava Terminal Interface">
