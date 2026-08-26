@@ -5,30 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ACHLEITNER — Ava AI Workspace</title>
     <style>
-        /* Modern Reset & Fluid Monospace Archetype */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         :root {
             --bg-dark: #000000;
-            --card-bg: #12141a;
-            --card-inner: #0b0c0f;
-            --card-border: #222735;
-            --card-border-hover: #373e52;
+            --card-bg: #0c0e12;
+            --card-border: #1e222b;
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
-            --accent-red: #ef4444;
             --accent-cyan: #06b6d4;
-            --accent-green: #10b981;
-            --accent-amber: #f59e0b;
-            --accent-purple: #c084fc;
-            --accent-magenta: #ec4899;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
         }
 
@@ -40,7 +31,6 @@
             width: 100%; 
             min-height: 100%; 
             overflow-x: hidden;
-            overflow-y: auto;
         }
 
         /* ------------------------------------------------------------- */
@@ -110,11 +100,7 @@
             letter-spacing: 0.14em; 
             text-transform: lowercase; 
             text-decoration: none; 
-            position: relative;
-            -webkit-tap-highlight-color: transparent;   
-            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                        text-shadow 0.4s ease;
+            transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
         }
 
         .interactive-node.flagship {
@@ -124,14 +110,8 @@
         }
 
         @media (hover: hover) {
-            .interactive-node:hover { 
-                color: #FFFFFF;
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-            }
-            .interactive-node.flagship:hover {
-                color: var(--accent-cyan);
-                text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
-            }
+            .interactive-node:hover { color: #FFFFFF; text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
+            .interactive-node.flagship:hover { color: var(--accent-cyan); text-shadow: 0 0 12px rgba(6, 182, 212, 0.5); }
             .links-matrix:hover .interactive-node:not(:hover) { opacity: 0.25; }
         }
 
@@ -142,11 +122,7 @@
             gap: 20px;
         }
 
-        .divider-line {
-            width: 16px;
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.15);
-        }
+        .divider-line { width: 16px; height: 1px; background-color: rgba(255, 255, 255, 0.15); }
 
         .contact-node {
             color: rgba(255, 255, 255, 0.35);
@@ -155,41 +131,35 @@
             letter-spacing: 0.15em;
             text-decoration: none;
             text-transform: uppercase;
-            transition: color 0.3s ease;
         }
 
         /* ------------------------------------------------------------- */
-        /* REALISTIC AVA MACOS APP SHOWCASE & INTERACTIVE TABS           */
+        /* AVA REAL SCREENSHOT SHOWCASE SECTION                          */
         /* ------------------------------------------------------------- */
 
         .ava-showcase {
             border-top: 1px solid var(--card-border);
-            background: #050608;
+            background: #040507;
             padding: 5rem 1.5rem 8rem;
         }
 
         .container { max-width: 1040px; margin: 0 auto; }
-        .mono { font-family: var(--font-mono); }
         
-        .badge {
+        .badge-amber {
             display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             padding: 0.25rem 0.65rem;
             border-radius: 6px;
             font-size: 0.72rem;
             font-family: var(--font-mono);
             font-weight: 600;
-            border: 1px solid transparent;
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.35);
         }
-        .badge-red { background: rgba(239, 68, 68, 0.12); color: var(--accent-red); border-color: rgba(239, 68, 68, 0.35); }
-        .badge-cyan { background: rgba(6, 182, 212, 0.12); color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.35); }
-        .badge-amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.35); }
-        .badge-purple { background: rgba(192, 132, 252, 0.12); color: var(--accent-purple); border-color: rgba(192, 132, 252, 0.35); }
 
         .ava-hero-text {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .ava-hero-text h2 {
@@ -210,11 +180,11 @@
             line-height: 1.6;
         }
 
-        /* View Switcher Tabs */
+        /* Screenshot View Switcher Tabs */
         .ui-switcher {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
@@ -237,286 +207,42 @@
             background: #141822;
         }
 
-        /* macOS Window Frame */
-        .window-frame {
+        /* Screenshot Frame */
+        .screenshot-frame {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.95);
             overflow: hidden;
-        }
-
-        .window-header {
-            background: #090a0d;
-            padding: 10px 16px;
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .window-dots { display: flex; gap: 6px; }
-        .dot { width: 11px; height: 11px; border-radius: 50%; }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-
-        .window-title {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .window-body { padding: 18px; display: flex; flex-direction: column; gap: 14px; min-height: 480px; }
-
-        /* TAB PANELS */
-        .tab-panel { display: none; flex-direction: column; gap: 14px; animation: fadeIn 0.3s ease forwards; }
-        .tab-panel.active { display: flex; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Component: Build Mode Active Banner */
-        .build-mode-banner {
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            background: rgba(245, 158, 11, 0.05);
-            color: var(--accent-amber);
-            border-radius: 8px;
-            padding: 8px 14px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Component: Prompt Bar */
-        .prompt-box {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 14px 16px;
-        }
-
-        .prompt-top-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-        }
-
-        .prompt-input-row {
-            font-family: var(--font-mono);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cursor { width: 2px; height: 16px; background: var(--text-main); animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .prompt-bottom-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 10px;
-        }
-
-        .action-icons { display: flex; gap: 12px; color: var(--text-muted); font-size: 0.9rem; }
-        .action-icons span:hover { color: #fff; cursor: pointer; }
-
-        /* Component: Usage Analytics Grid */
-        .analytics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .stat-card {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 12px 14px;
-        }
-
-        .stat-label { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; }
-        .stat-val { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; margin-top: 4px; }
-
-        .heaviest-query-card {
-            background: rgba(239, 68, 68, 0.06);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-red);
-        }
-
-        /* Component: DAG Visual Pipeline Canvas */
-        .canvas-toolbar {
-            background: #090b0e;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 8px 12px;
-            display: flex;
-            gap: 6px;
-            overflow-x: auto;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-        }
-
-        .canvas-node-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            padding: 3px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        .canvas-workspace {
-            height: 320px;
-            background: #07080a;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .dag-node {
-            background: #11141b;
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            width: 200px;
-            padding: 12px;
-            font-family: var(--font-mono);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             position: relative;
         }
 
-        .dag-node-header { display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 8px; }
-        .dag-node-body { font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; }
-
-        .dag-connector {
-            height: 2px;
-            width: 40px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-            position: relative;
-        }
-        .dag-connector::after {
-            content: ''; position: absolute; right: 0; top: -3px; width: 8px; height: 8px;
-            border-radius: 50%; background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan);
+        .app-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
         }
 
-        /* Component: MCP Hub Server Registry */
-        .mcp-hub-list { display: flex; flex-direction: column; gap: 8px; }
-        .mcp-server-card {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-        }
+        .tab-panel { display: none; animation: fadeIn 0.3s ease forwards; }
+        .tab-panel.active { display: block; }
 
-        .mcp-tools-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-        .mcp-tool-pill {
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.25);
-            color: var(--accent-amber);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.68rem;
-        }
-
-        /* Component: Live Voice Drawer */
-        .voice-drawer {
-            background: rgba(16, 185, 129, 0.04);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 8px;
-            padding: 12px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-        }
-
-        .btn-call-end {
-            background: #7f1d1d;
-            border: 1px solid var(--accent-red);
-            color: #ffffff;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-        }
-
-        /* Component: Cloud Repository Index */
-        .kb-item {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            padding: 10px 14px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-        }
-
-        /* Component: Capabilities Tiles */
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .capability-tile {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            font-family: var(--font-mono);
-        }
-
-        .capability-tile:hover { border-color: var(--accent-cyan); }
-
-        /* Buttons & Footer CTA */
-        .btn {
+        .btn-github {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             padding: 0.65rem 1.4rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.85rem;
             text-decoration: none;
-            transition: all 0.2s ease;
+            background: #ffffff;
+            color: #000000;
+            transition: opacity 0.2s;
         }
-        .btn-primary { background: #ffffff; color: #000000; }
-        .btn-primary:hover { opacity: 0.9; }
+        .btn-github:hover { opacity: 0.9; }
 
-        @keyframes premiumEntry {
-            from { opacity: 0; filter: blur(8px) brightness(0.5); transform: translateY(20px); }
-            to { opacity: 1; filter: blur(0) brightness(1); transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .analytics-grid, .capabilities-grid { grid-template-columns: repeat(1, 1fr); }
-            .canvas-workspace { flex-direction: column; height: auto; padding: 20px 0; }
-            .dag-connector { width: 2px; height: 30px; }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes premiumEntry { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -548,303 +274,76 @@
         </div>
     </section>
 
-    <!-- Embedded Ava macOS App Showcase -->
+    <!-- Ava Real Screenshot Showcase -->
     <section class="ava-showcase" id="ava">
         <div class="container">
             <div class="ava-hero-text">
-                <span class="badge badge-amber">⚡ macOS Native Desktop Intelligence</span>
+                <span class="badge-amber">⚡ macOS Native AI Workspace</span>
                 <h2>Ava Workspace Engine</h2>
-                <p>Native macOS AI workspace for deep context analysis, dynamic DAG automations, GUI action execution, and Model Context Protocol (MCP) tool integration.</p>
-                <a href="https://github.com/achleitner" class="btn btn-primary" target="_blank">View Repository on GitHub</a>
+                <p>Native macOS AI workspace for deep context analysis, dynamic DAG automations, GUI actions, and Model Context Protocol (MCP) tool integration.</p>
+                <a href="https://github.com/achleitner" class="btn-github" target="_blank">View Repository on GitHub</a>
             </div>
 
             <!-- UI View Switcher Tabs -->
             <div class="ui-switcher">
-                <button class="tab-btn active" onclick="switchTab('prompt-view', this)">💻 Prompt Terminal</button>
-                <button class="tab-btn" onclick="switchTab('canvas-view', this)">🔲 DAG Canvas</button>
-                <button class="tab-btn" onclick="switchTab('mcp-view', this)">🔌 MCP Connectors</button>
-                <button class="tab-btn" onclick="switchTab('kb-view', this)">📚 Cloud Repository</button>
-                <button class="tab-btn" onclick="switchTab('analytics-view', this)">📊 Telemetry</button>
-                <button class="tab-btn" onclick="switchTab('engines-view', this)">🛠️ Engine Capabilities</button>
+                <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">💻 Terminal Interface</button>
+                <button class="tab-btn" onclick="switchTab('tab-analytics', this)">📊 Usage Analytics</button>
+                <button class="tab-btn" onclick="switchTab('tab-build', this)">🔨 Build Mode</button>
+                <button class="tab-btn" onclick="switchTab('tab-voice', this)">🎙️ Multimodal Voice</button>
+                <button class="tab-btn" onclick="switchTab('tab-kb', this)">📚 Knowledge Base Index</button>
+                <button class="tab-btn" onclick="switchTab('tab-canvas', this)">🔲 Visual Canvas</button>
+                <button class="tab-btn" onclick="switchTab('tab-automation', this)">🔄 Pipeline Automation</button>
+                <button class="tab-btn" onclick="switchTab('tab-mcp', this)">🔌 MCP Connectors</button>
+                <button class="tab-btn" onclick="switchTab('tab-capabilities', this)">🛠️ Engine Capabilities</button>
+                <button class="tab-btn" onclick="switchTab('tab-config', this)">🎛️ Model Config</button>
             </div>
 
-            <!-- macOS App Window Frame -->
-            <div class="window-frame">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <span class="window-title">Ava Autonomous Environment — v3.7 Flash</span>
+            <!-- Screenshot Window Frame using exact uploaded file paths -->
+            <div class="screenshot-frame">
+                <div id="tab-terminal" class="tab-panel active">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.19.32.png" alt="Ava Terminal Interface">
                 </div>
 
-                <div class="window-body">
+                <div id="tab-analytics" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.19.26.jpg" alt="Ava Usage Analytics">
+                </div>
 
-                    <!-- TAB 1: Main Prompt & Build Mode View -->
-                    <div id="prompt-view" class="tab-panel active">
-                        <div class="build-mode-banner">
-                            <span>🔨</span>
-                            <span><strong>Build Mode Active:</strong> Prompts & files will compile visual automations</span>
-                        </div>
+                <div id="tab-build" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.19.14.png" alt="Ava Build Mode Active">
+                </div>
 
-                        <div class="prompt-box">
-                            <div class="prompt-top-toolbar">
-                                <div style="display: flex; gap: 6px;">
-                                    <span class="badge badge-red">⚡ 3.7 FLASH</span>
-                                    <span class="badge badge-cyan">🪄 Auto</span>
-                                    <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--card-border);">⚙️ ENGINES</span>
-                                </div>
-                                <div style="color: var(--text-muted);">
-                                    🎛️ Config &nbsp; 📚 KB &nbsp; ⚙️ MCP &nbsp; 🔲 Canvas
-                                </div>
-                            </div>
+                <div id="tab-voice" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.19.07.png" alt="Ava Multimodal Voice Connected">
+                </div>
 
-                            <div class="prompt-input-row">
-                                <span>Tell Ava what to do next...</span>
-                                <span class="cursor"></span>
-                            </div>
+                <div id="tab-kb" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.56.jpg" alt="Ava Cloud Repository Index">
+                </div>
 
-                            <div class="prompt-bottom-bar">
-                                <div style="display: flex; gap: 6px;">
-                                    <span class="badge" style="background: #151820; color: var(--text-muted); border-color: var(--card-border);">🕒 MEMORY LEDGER ▾</span>
-                                    <span class="badge" style="background: #151820; color: var(--text-muted); border-color: var(--card-border);">📁 IT DESK ▾</span>
-                                    <span class="badge" style="background: #151820; color: var(--accent-cyan); border-color: var(--card-border);">⚪ 8.1K tok</span>
-                                </div>
-                                <div class="action-icons">
-                                    <span>🎙️</span> <span>🔊</span> <span>📎</span> <span>🔨</span>
-                                    <span style="color: #fff;">⬆</span>
-                                </div>
-                            </div>
-                        </div>
+                <div id="tab-canvas" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.31.jpg" alt="Ava Visual Pipeline Canvas">
+                </div>
 
-                        <!-- Live Multimodal Voice Stream Sub-component -->
-                        <div class="voice-drawer">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <span style="color: var(--accent-green);">🟢</span>
-                                <strong>LIVE MULTIMODAL VOICE</strong>
-                                <span style="color: var(--text-muted); font-size: 0.75rem;">• Gemini WebSocket (Connected)</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <span style="color: var(--accent-green); letter-spacing: 2px;">🟢🟢🟢🟢</span>
-                                <span style="color: var(--text-muted); font-size: 0.75rem;">Listening...</span>
-                                <button class="btn-call-end">End Call</button>
-                            </div>
-                        </div>
+                <div id="tab-automation" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.27.png" alt="Ava Pipeline Automation Bar">
+                </div>
 
-                        <div class="mono" style="font-size: 0.8rem; color: var(--accent-green); margin-top: 4px;">
-                            • Completed successfully in 5s.
-                        </div>
-                    </div>
+                <div id="tab-mcp" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.22.jpg" alt="Ava MCP Connector Hub">
+                </div>
 
-                    <!-- TAB 2: Visual Pipeline Canvas View -->
-                    <div id="canvas-view" class="tab-panel">
-                        <div class="canvas-toolbar">
-                            <span class="canvas-node-btn" style="color: var(--accent-green);">▶ RUN FLOW</span>
-                            <span class="canvas-node-btn" style="color: var(--accent-cyan);">🪄 AUTO-TIDY</span>
-                            <span class="canvas-node-btn">📁 PRESETS ▾</span>
-                            <span class="canvas-node-btn">+ 📥 INPUT</span>
-                            <span class="canvas-node-btn">+ 🌐 API REQUEST</span>
-                            <span class="canvas-node-btn">+ ✨ AI PROMPT</span>
-                            <span class="canvas-node-btn">+ 🐍 PYTHON CODE</span>
-                            <span class="canvas-node-btn">+ 🔌 MCP TOOL</span>
-                            <span class="canvas-node-btn">+ 🔀 ROUTER</span>
-                        </div>
+                <div id="tab-capabilities" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.16.png" alt="Ava Engine Capabilities Matrix">
+                </div>
 
-                        <div class="canvas-workspace">
-                            <div class="dag-node" style="border-color: var(--accent-purple);">
-                                <div class="dag-node-header">
-                                    <span style="color: var(--accent-purple);">📁 CONTEXT DATA</span>
-                                    <span>⚙️ ✖</span>
-                                </div>
-                                <div class="dag-node-body">
-                                    Input vector context and SOP parameters.
-                                </div>
-                            </div>
-
-                            <div class="dag-connector"></div>
-
-                            <div class="dag-node" style="border-color: var(--accent-cyan);">
-                                <div class="dag-node-header">
-                                    <span style="color: var(--accent-cyan);">✨ PROCESS STEP</span>
-                                    <span>⚙️ ✖</span>
-                                </div>
-                                <div class="dag-node-body">
-                                    Summarize input text into key analytical points.
-                                </div>
-                            </div>
-
-                            <div class="dag-connector"></div>
-
-                            <div class="dag-node" style="border-color: var(--accent-green);">
-                                <div class="dag-node-header">
-                                    <span style="color: var(--accent-green);">🟢 FINAL OUTPUT</span>
-                                    <span>⚙️ ✖</span>
-                                </div>
-                                <div class="dag-node-body">
-                                    Outputs final synthesized response to workspace.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TAB 3: Model Context Protocol (MCP) Hub View -->
-                    <div id="mcp-view" class="tab-panel">
-                        <div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono);">
-                            <span class="mono" style="color: var(--accent-amber); font-size: 0.85rem; font-weight: 700;">🔌 MCP CONNECTOR HUB (Active)</span>
-                            <span class="badge badge-amber">+ Add Server</span>
-                        </div>
-
-                        <div class="mcp-hub-list">
-                            <div class="mcp-server-card">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <strong>🌐 PYTHIA ORACLE</strong>
-                                    <span style="color: var(--text-muted); font-size: 0.75rem;">https://projectpythia.com/mcp</span>
-                                </div>
-                                <div class="mcp-tools-row">
-                                    <span class="mcp-tool-pill">🔧 world_brief</span>
-                                    <span class="mcp-tool-pill">🔧 get_events</span>
-                                    <span class="mcp-tool-pill">🔧 get_predictions</span>
-                                    <span class="mcp-tool-pill">🔧 market_pulse</span>
-                                </div>
-                            </div>
-
-                            <div class="mcp-server-card">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <strong>🌐 FINANCIAL DATASETS</strong>
-                                    <span style="color: var(--text-muted); font-size: 0.75rem;">https://mcp.financialdatasets.ai/api</span>
-                                </div>
-                                <div class="mcp-tools-row">
-                                    <span class="mcp-tool-pill">🔧 get_company_facts</span>
-                                    <span class="mcp-tool-pill">🔧 get_earnings</span>
-                                    <span class="mcp-tool-pill">🔧 get_filing_items</span>
-                                </div>
-                            </div>
-
-                            <div class="mcp-server-card">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <strong>🌐 DEEPWIKI RESEARCH INDEX</strong>
-                                    <span style="color: var(--text-muted); font-size: 0.75rem;">https://mcp.deepwiki.com/mcp</span>
-                                </div>
-                                <div class="mcp-tools-row">
-                                    <span class="mcp-tool-pill">🔧 vector_search</span>
-                                    <span class="mcp-tool-pill">🔧 query_knowledge</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TAB 4: Cloud Repository Index View -->
-                    <div id="kb-view" class="tab-panel">
-                        <div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono);">
-                            <span style="color: var(--accent-magenta); font-size: 0.85rem; font-weight: 700;">CLOUD REPOSITORY INDEX</span>
-                            <span style="color: var(--accent-amber); font-size: 0.8rem;">🟡 Health: 58/100 • 5 coverage gaps detected</span>
-                        </div>
-
-                        <div class="kb-item">
-                            <span>📄 Batch_009 [TXT • 103 KB]</span>
-                            <span style="color: var(--accent-red);">Scanned • 40 chunks 🗑️</span>
-                        </div>
-                        <div class="kb-item">
-                            <span>📄 Batch_010 [TXT • 103 KB]</span>
-                            <span style="color: var(--accent-red);">Scanned • 40 chunks 🗑️</span>
-                        </div>
-                        <div class="kb-item">
-                            <span>📄 Batch_014 [TXT • 105 KB]</span>
-                            <span style="color: var(--accent-red);">Scanned • 40 chunks 🗑️</span>
-                        </div>
-                        <div class="kb-item">
-                            <span>📄 Batch_015 [TXT • 104 KB]</span>
-                            <span style="color: var(--accent-red);">Scanned • 40 chunks 🗑️</span>
-                        </div>
-
-                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--font-mono); font-size: 0.75rem;">
-                            <span class="badge badge-cyan">🩺 Health Scan</span>
-                            <span style="color: var(--accent-red);">🔥 Wipe Database...</span>
-                            <span class="badge badge-purple">➕ Upload Asset...</span>
-                        </div>
-                    </div>
-
-                    <!-- TAB 5: Usage Analytics View -->
-                    <div id="analytics-view" class="tab-panel">
-                        <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 4px;">
-                            <span style="color: var(--accent-cyan); font-weight: 700;">📊 USAGE ANALYTICS</span>
-                            <span style="color: var(--text-muted);">24h | 7d | 30d | 1y | <strong style="color: var(--accent-cyan);">All</strong></span>
-                        </div>
-
-                        <div class="analytics-grid">
-                            <div class="stat-card">
-                                <div class="stat-label">Requests</div>
-                                <div class="stat-val" style="color: var(--accent-cyan);">36</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Tokens</div>
-                                <div class="stat-val" style="color: var(--accent-purple);">70,179.2K</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Time Saved</div>
-                                <div class="stat-val" style="color: var(--accent-green);">2 min</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Success Rate</div>
-                                <div class="stat-val" style="color: var(--accent-amber);">97%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Avg Latency</div>
-                                <div class="stat-val" style="color: var(--accent-amber);">10.0s</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Avg Words</div>
-                                <div class="stat-val" style="color: var(--accent-cyan);">1</div>
-                            </div>
-                        </div>
-
-                        <div class="heaviest-query-card">
-                            <strong>🔥 HEAVIEST QUERY:</strong> 37,217.3K tokens &nbsp;•&nbsp; <em>Draft quick and concise executive synthesis...</em>
-                        </div>
-                    </div>
-
-                    <!-- TAB 6: Engine Capabilities View -->
-                    <div id="engines-view" class="tab-panel">
-                        <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 4px;">
-                            <span style="color: var(--text-main); font-weight: 700;">ENGINE CAPABILITIES</span>
-                            <span style="color: var(--accent-cyan);">Auto Pilot Active</span>
-                        </div>
-
-                        <div class="capabilities-grid">
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">🧠</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Vector DB</div>
-                            </div>
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">🌐</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Web Search</div>
-                            </div>
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">💻</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Code Runner</div>
-                            </div>
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">🔍</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Research</div>
-                            </div>
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">🖥️</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Computer GUI</div>
-                            </div>
-                            <div class="capability-tile">
-                                <div style="font-size: 1.5rem; margin-bottom: 8px;">🌱</div>
-                                <div style="font-size: 0.85rem; font-weight: 700;">Swarm Agent</div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div id="tab-config" class="tab-panel">
+                    <img class="app-img" src="Screenshot 2026-08-26 at 20.18.08.jpg" alt="Ava Engine Config & Overrides">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Tab Switcher Script -->
+    <!-- Tab Switching Script -->
     <script>
         function switchTab(panelId, btnElement) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
