@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ACHLEITNER — Ava AI Workspace</title>
     <style>
-        /* Modern Reset & Fluid Monospace Archetype */
+        /* Modern Reset */
         * { 
             box-sizing: border-box; 
             margin: 0; 
@@ -18,8 +18,8 @@
         :root {
             --bg-dark: #000000;
             --card-bg: #07080b;
-            --card-border: rgba(255, 255, 255, 0.07);
-            --card-border-hover: rgba(6, 182, 212, 0.35);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-hover: rgba(255, 255, 255, 0.2);
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
             --accent-cyan: #06b6d4;
@@ -27,20 +27,21 @@
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
         }
 
-        html { scroll-behavior: smooth; }
-
-        /* Ambient True Black Canvas */
-        html, body { 
-            background-color: #000000;
-            color: #FFFFFF; 
-            width: 100%; 
-            min-height: 100%; 
+        html { 
+            scroll-behavior: smooth; 
             overflow-x: hidden;
-            overflow-y: auto;
+        }
+
+        body { 
+            background-color: var(--bg-dark);
+            color: var(--text-main); 
+            width: 100%; 
+            min-height: 100vh; 
+            overflow-x: hidden;
         }
 
         /* ------------------------------------------------------------- */
-        /* ORIGINAL TOP IDENTITY MENU (EXACT & UNTOUCHED)               */
+        /* PRIMARY IDENTITY SECTION (EXACT ORIGINAL ACHLEITNER SETUP)    */
         /* ------------------------------------------------------------- */
         .identity-section {
             display: flex;
@@ -48,7 +49,7 @@
             align-items: center;
             justify-content: space-between;
             min-height: 100vh;
-            padding: clamp(80px, 15vh, 160px) 24px 60px 24px;
+            padding: clamp(60px, 12vh, 160px) 20px 40px 20px;
             background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
         }
 
@@ -66,7 +67,7 @@
             display: inline-block;
             width: 80px;
             height: 80px;
-            margin-bottom: 56px;
+            margin-bottom: 48px;
             background: #000000;
             border-radius: 50%;
             isolation: isolate;
@@ -90,7 +91,7 @@
             display: flex; 
             flex-direction: column; 
             gap: 4px; 
-            margin-bottom: 72px;
+            margin-bottom: 64px;
         }
 
         .interactive-node { 
@@ -165,20 +166,26 @@
         }
 
         /* ------------------------------------------------------------- */
-        /* AVA SHOWCASE SECTION — SPACIOUS, SLEEK & SMOOTH              */
+        /* AVA SHOWCASE SECTION — RESPONSIVE, SLEEK & MOBILE OPTIMIZED   */
         /* ------------------------------------------------------------- */
 
         .ava-showcase {
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             background: #000000;
-            padding: 7rem 2rem 10rem;
+            padding: 5rem 1.5rem 8rem;
+            width: 100%;
         }
 
-        .container { max-width: 1140px; margin: 0 auto; }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
 
         .ava-hero-text {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
         }
 
         .badge-amber {
@@ -197,31 +204,32 @@
         }
 
         .ava-hero-text h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 800;
             letter-spacing: -1.5px;
-            margin: 1.25rem 0;
+            margin: 1rem 0;
             background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.15;
         }
 
         .ava-hero-text p {
-            max-width: 700px;
-            margin: 0 auto 2.25rem;
+            max-width: 680px;
+            margin: 0 auto 2rem;
             color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.65;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.6;
         }
 
         .btn-github {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 0.75rem 1.75rem;
+            padding: 0.75rem 1.6rem;
             border-radius: 999px;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             text-decoration: none;
             background: #ffffff;
             color: #000000;
@@ -233,57 +241,64 @@
             box-shadow: 0 8px 30px rgba(255, 255, 255, 0.22);
         }
 
-        /* Fluid Pill Navigation Bar (Non-cramped Switcher) */
+        /* ------------------------------------------------------------- */
+        /* MODERN TOUCH-SCROLLABLE TAB BAR (100% RESPONSIVE)             */
+        /* ------------------------------------------------------------- */
         .ui-switcher-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
             width: 100%;
+            padding: 0 0.5rem;
         }
 
         .ui-switcher {
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 8px;
-            background: rgba(255, 255, 255, 0.02);
+            gap: 4px;
+            padding: 5px 6px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 999px;
-            backdrop-filter: blur(24px);
+            border-radius: 14px;
+            backdrop-filter: blur(20px);
             overflow-x: auto;
             max-width: 100%;
+            -webkit-overflow-scrolling: touch;
             scrollbar-width: none; /* Firefox */
         }
 
-        .ui-switcher::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .ui-switcher::-webkit-scrollbar { display: none; } /* Hide Chrome/Safari scrollbar */
 
         .tab-btn {
             background: transparent;
-            border: 1px solid transparent;
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-family: var(--font-mono);
-            font-size: 0.76rem;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.78rem;
             font-weight: 500;
+            letter-spacing: -0.01em;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .tab-btn:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .tab-btn.active {
             color: #ffffff;
-            background: rgba(6, 182, 212, 0.15);
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 0 16px rgba(6, 182, 212, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* High-Res Screen Stage (Expanded for max crispness & breathing room) */
+        /* ------------------------------------------------------------- */
+        /* CRISP FLUID SCREENSHOT STAGE                                  */
+        /* ------------------------------------------------------------- */
         .screenshot-frame {
             background: transparent;
             border: none;
@@ -291,8 +306,9 @@
             border-radius: 0;
             overflow: visible;
             position: relative;
-            max-width: 960px; /* Expanded stage prevents cramped tiny window feel */
-            margin: 0 auto 7rem;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto 6rem;
         }
 
         .app-img {
@@ -303,112 +319,156 @@
             background: transparent;
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.95));
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95));
         }
 
         .tab-panel { 
             display: none; 
-            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
         }
         
         .tab-panel.active { display: block; }
 
-        /* Feature Section Header */
+        /* ------------------------------------------------------------- */
+        /* RESPONSIVE FEATURE GRID & SPECS                               */
+        /* ------------------------------------------------------------- */
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
+            padding: 0 1rem;
         }
 
         .section-header h3 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
         }
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
         }
 
-        /* Spacious Feature Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 7rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 6rem;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 2.25rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 2rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card:hover {
             border-color: var(--card-border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         .card-icon {
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
             display: inline-block;
         }
 
         .card h4 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
             color: #ffffff;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.2px;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.925rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        /* Architectural Specifications Panel */
         .spec-box {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 20px;
-            padding: 3.5rem;
-            margin-bottom: 3rem;
+            padding: clamp(1.75rem, 4vw, 3rem);
+            margin-bottom: 2rem;
         }
 
         .spec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 1.75rem;
         }
 
         .spec-item h5 {
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--accent-cyan);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
         }
 
         .spec-item p {
             color: var(--text-muted);
-            font-size: 0.925rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        /* ------------------------------------------------------------- */
+        /* MOBILE / SMALL DISPLAY OVERRIDES                              */
+        /* ------------------------------------------------------------- */
+        @media (max-width: 640px) {
+            .ava-showcase { 
+                padding: 3.5rem 1rem 5rem; 
+            }
+            .ui-switcher-wrapper { 
+                justify-content: flex-start; 
+                margin-bottom: 2rem; 
+            }
+            .ui-switcher { 
+                width: 100%; 
+                border-radius: 12px; 
+                padding: 4px;
+            }
+            .tab-btn { 
+                font-size: 0.74rem; 
+                padding: 6px 12px; 
+                border-radius: 8px;
+            }
+            .screenshot-frame { 
+                margin-bottom: 4rem; 
+            }
+            .features-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1.25rem; 
+                margin-bottom: 4rem; 
+            }
+            .card { 
+                padding: 1.5rem; 
+                border-radius: 14px; 
+            }
+            .spec-box { 
+                padding: 1.5rem 1.25rem; 
+                border-radius: 16px; 
+            }
+            .spec-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1.5rem; 
+            }
         }
 
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(8px) scale(0.995); } 
-            to { opacity: 1; transform: translateY(0) scale(1); } 
+            from { opacity: 0; transform: translateY(6px); } 
+            to { opacity: 1; transform: translateY(0); } 
         }
-        
+
         @keyframes premiumEntry {
             from { 
                 opacity: 0; 
@@ -421,20 +481,11 @@
                 transform: translateY(0); 
             }
         }
-
-        @media (max-width: 768px) {
-            .ava-showcase { padding: 4rem 1.25rem 6rem; }
-            .ui-switcher-wrapper { justify-content: flex-start; }
-            .ui-switcher { border-radius: 14px; padding: 4px; }
-            .tab-btn { border-radius: 8px; padding: 6px 12px; }
-            .spec-box { padding: 2rem 1.5rem; }
-            .features-grid { gap: 1.25rem; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Primary Identity Section (Exact Original ACHLEITNER Layout & Menu) -->
+    <!-- Primary Identity Section (Original ACHLEITNER Layout & Menu) -->
     <section class="identity-section">
         <div class="directory-wrapper">
             <header>
@@ -474,23 +525,23 @@
                 </a>
             </div>
 
-            <!-- Sleek Glass Tab Switcher -->
+            <!-- Touch-Optimized Tab Switcher -->
             <div class="ui-switcher-wrapper">
                 <div class="ui-switcher">
-                    <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">💻 Terminal Interface</button>
-                    <button class="tab-btn" onclick="switchTab('tab-analytics', this)">📊 Usage Analytics</button>
-                    <button class="tab-btn" onclick="switchTab('tab-build', this)">🔨 Build Mode</button>
-                    <button class="tab-btn" onclick="switchTab('tab-voice', this)">🎙️ Multimodal Voice</button>
-                    <button class="tab-btn" onclick="switchTab('tab-kb', this)">📚 Knowledge Base</button>
-                    <button class="tab-btn" onclick="switchTab('tab-canvas', this)">🔲 Visual Canvas</button>
-                    <button class="tab-btn" onclick="switchTab('tab-automation', this)">🔄 Automation</button>
-                    <button class="tab-btn" onclick="switchTab('tab-mcp', this)">🔌 MCP Hub</button>
-                    <button class="tab-btn" onclick="switchTab('tab-capabilities', this)">🛠️ Capabilities</button>
-                    <button class="tab-btn" onclick="switchTab('tab-config', this)">🎛️ Config</button>
+                    <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">Terminal</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analytics', this)">Analytics</button>
+                    <button class="tab-btn" onclick="switchTab('tab-build', this)">Build Mode</button>
+                    <button class="tab-btn" onclick="switchTab('tab-voice', this)">Live Voice</button>
+                    <button class="tab-btn" onclick="switchTab('tab-kb', this)">Knowledge Base</button>
+                    <button class="tab-btn" onclick="switchTab('tab-canvas', this)">Visual Canvas</button>
+                    <button class="tab-btn" onclick="switchTab('tab-automation', this)">Automations</button>
+                    <button class="tab-btn" onclick="switchTab('tab-mcp', this)">MCP Hub</button>
+                    <button class="tab-btn" onclick="switchTab('tab-capabilities', this)">Capabilities</button>
+                    <button class="tab-btn" onclick="switchTab('tab-config', this)">Config</button>
                 </div>
             </div>
 
-            <!-- Crisp Screenshot Stage (960px Fluid Stage) -->
+            <!-- Screenshot Stage (Preserves PNG Window Transparency & Fluid Scaling) -->
             <div class="screenshot-frame">
                 <div id="tab-terminal" class="tab-panel active">
                     <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.32.png" alt="Ava Terminal Interface">
@@ -533,7 +584,7 @@
                 </div>
             </div>
 
-            <!-- Architectural Features -->
+            <!-- Architectural Features Grid -->
             <div class="section-header">
                 <h3>Built for Agentic Precision</h3>
                 <p>Bridging desktop workflows with Google Gemini 3.7 models, live voice streams, and MCP servers.</p>
@@ -579,7 +630,7 @@
 
             <!-- Telemetry & System Specifications -->
             <div class="spec-box">
-                <h3 style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;">Engine Overrides & Telemetry</h3>
+                <h3 style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 800; letter-spacing: -0.5px;">Engine Overrides & Telemetry</h3>
                 <div class="spec-grid">
                     <div class="spec-item">
                         <h5>Model & Thinking Budget</h5>
