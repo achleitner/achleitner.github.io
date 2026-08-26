@@ -16,18 +16,11 @@
 
         :root {
             --bg-dark: #000000;
-            --card-bg: #0b0c10;
-            --card-inner: #050608;
             --card-border: rgba(255, 255, 255, 0.08);
-            --card-border-hover: rgba(6, 182, 212, 0.4);
             --text-main: #f3f4f6;
             --text-muted: #8b949e;
             --accent-cyan: #06b6d4;
-            --accent-cyan-glow: rgba(6, 182, 212, 0.25);
-            --accent-red: #ef4444;
-            --accent-green: #10b981;
             --accent-amber: #f59e0b;
-            --accent-purple: #c084fc;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
         }
 
@@ -88,7 +81,6 @@
 
         .avatar-assembly:hover .identity-avatar { transform: scale(1.08); }
 
-        /* Modern Segmented Floating Link Dock */
         .links-matrix { 
             display: flex; 
             flex-direction: column; 
@@ -162,22 +154,17 @@
         .contact-node:hover { color: rgba(255, 255, 255, 0.75); }
 
         /* ------------------------------------------------------------- */
-        /* ULTRA-MODERN & SLEEK AVA SHOWCASE SECTION                     */
+        /* AVA SHOWCASE SECTION & HERO HEADINGS                           */
         /* ------------------------------------------------------------- */
+
         .ava-showcase {
             border-top: 1px solid var(--card-border);
             background: #000000;
             padding: 5rem 1.5rem 8rem;
         }
 
-        .container { max-width: 980px; margin: 0 auto; }
-        .mono { font-family: var(--font-mono); }
-
-        .ava-hero-text {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
+        .container { max-width: 1040px; margin: 0 auto; }
+        
         .badge-amber {
             display: inline-flex;
             align-items: center;
@@ -192,6 +179,11 @@
             border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
+        .ava-hero-text {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
         .ava-hero-text h2 {
             font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 800;
@@ -203,8 +195,8 @@
         }
 
         .ava-hero-text p {
-            max-width: 640px;
-            margin: 0 auto 2rem;
+            max-width: 680px;
+            margin: 0 auto 1.75rem;
             color: var(--text-muted);
             font-size: 1.05rem;
             line-height: 1.6;
@@ -242,7 +234,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 5px;
+            padding: 6px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 999px;
@@ -253,9 +245,9 @@
 
         .tab-btn {
             background: transparent;
-            border: none;
+            border: 1px solid transparent;
             color: var(--text-muted);
-            padding: 7px 16px;
+            padding: 7px 15px;
             border-radius: 999px;
             font-family: var(--font-mono);
             font-size: 0.76rem;
@@ -273,165 +265,49 @@
         .tab-btn.active {
             color: #ffffff;
             background: rgba(6, 182, 212, 0.18);
-            border: 1px solid rgba(6, 182, 212, 0.4);
+            border-color: rgba(6, 182, 212, 0.4);
             box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
         }
 
         /* ------------------------------------------------------------- */
-        /* VECTOR-SHARP INTERACTIVE UI TERMINAL (NO BLUR / NO BROKEN LINKS) */
+        /* CLEAN SHARP SCREENSHOT CONTAINER (PRESERVES MACOS CORNERS)    */
         /* ------------------------------------------------------------- */
-        .window-frame {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-        .window-frame:hover { border-color: rgba(255, 255, 255, 0.14); }
-
-        .window-header {
-            background: #07080b;
-            padding: 12px 18px;
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .screenshot-frame {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            overflow: visible;
+            position: relative;
+            max-width: 760px; /* Constrained scale eliminates blur & pixelation */
+            margin: 0 auto;
         }
 
-        .window-dots { display: flex; gap: 7px; }
-        .dot { width: 11px; height: 11px; border-radius: 50%; }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-
-        .window-title {
-            font-family: var(--font-mono);
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            margin-left: auto;
-            margin-right: auto;
+        .app-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            background: transparent;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
         }
 
-        .window-body {
-            padding: 24px;
-            background: #06070a;
-            min-height: 420px;
+        .tab-panel { 
+            display: none; 
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
         }
+        
+        .tab-panel.active { display: block; }
 
-        .tab-panel { display: none; flex-direction: column; gap: 16px; animation: fadeIn 0.3s ease forwards; }
-        .tab-panel.active { display: flex; }
-
-        /* Mock UI Component Blocks */
-        .prompt-box {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 16px;
-        }
-
-        .prompt-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-        }
-
-        .prompt-input-row {
-            font-family: var(--font-mono);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cursor { width: 2px; height: 16px; background: #ffffff; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .prompt-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 12px;
-        }
-
-        .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            font-family: var(--font-mono);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--card-border);
-            color: var(--text-muted);
-        }
-
-        /* Analytics Grid */
-        .analytics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 12px;
-        }
-
-        .stat-card {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            padding: 14px;
-            border-radius: 10px;
-        }
-
-        .stat-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
-        .stat-val { font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; margin-top: 4px; }
-
-        /* Visual Canvas Flow Nodes */
-        .canvas-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            padding: 40px 10px;
-            background: #040507;
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-        }
-
-        .flow-node {
-            background: #0d0f15;
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 14px 18px;
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            min-width: 170px;
-        }
-        .flow-arrow { color: var(--accent-cyan); font-size: 1.2rem; }
-
-        /* MCP & KB Cards */
-        .mcp-item, .kb-item {
-            background: var(--card-inner);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 14px 18px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes premiumEntry { from { opacity: 0; filter: blur(8px); transform: translateY(20px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
 
         @media (max-width: 768px) {
-            .ui-switcher { justify-content: flex-start; }
-            .canvas-flow { flex-direction: column; }
-            .flow-arrow { transform: rotate(90deg); }
+            .ui-switcher-wrapper { justify-content: flex-start; }
+            .ui-switcher { border-radius: 14px; padding: 4px; }
+            .tab-btn { border-radius: 8px; }
         }
     </style>
 </head>
@@ -464,7 +340,7 @@
         </div>
     </section>
 
-    <!-- Ava Workspace Engine Showcase -->
+    <!-- Ava Real Screenshot Showcase -->
     <section class="ava-showcase" id="ava">
         <div class="container">
             <div class="ava-hero-text">
@@ -477,153 +353,68 @@
                 </a>
             </div>
 
-            <!-- Sleek Glass Segmented Menu Switcher -->
+            <!-- Sleek Glass Pill Menu Switcher -->
             <div class="ui-switcher-wrapper">
                 <div class="ui-switcher">
-                    <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">💻 Prompt Terminal</button>
-                    <button class="tab-btn" onclick="switchTab('tab-analytics', this)">📊 Telemetry</button>
+                    <button class="tab-btn active" onclick="switchTab('tab-terminal', this)">💻 Terminal Interface</button>
+                    <button class="tab-btn" onclick="switchTab('tab-analytics', this)">📊 Usage Analytics</button>
+                    <button class="tab-btn" onclick="switchTab('tab-build', this)">🔨 Build Mode</button>
+                    <button class="tab-btn" onclick="switchTab('tab-voice', this)">🎙️ Multimodal Voice</button>
+                    <button class="tab-btn" onclick="switchTab('tab-kb', this)">📚 Knowledge Base</button>
                     <button class="tab-btn" onclick="switchTab('tab-canvas', this)">🔲 Visual Canvas</button>
+                    <button class="tab-btn" onclick="switchTab('tab-automation', this)">🔄 Automation</button>
                     <button class="tab-btn" onclick="switchTab('tab-mcp', this)">🔌 MCP Hub</button>
-                    <button class="tab-btn" onclick="switchTab('tab-kb', this)">📚 Cloud KB</button>
-                    <button class="tab-btn" onclick="switchTab('tab-voice', this)">🎙️ Voice Stream</button>
+                    <button class="tab-btn" onclick="switchTab('tab-capabilities', this)">🛠️ Capabilities</button>
+                    <button class="tab-btn" onclick="switchTab('tab-config', this)">🎛️ Config</button>
                 </div>
             </div>
 
-            <!-- Window Container -->
-            <div class="window-frame">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <span class="window-title">Ava Autonomous Environment — v3.7 Flash</span>
+            <!-- Clean Screenshot Stage targeting assets/*.png -->
+            <div class="screenshot-frame">
+                <div id="tab-terminal" class="tab-panel active">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.32.png" alt="Ava Terminal Interface">
                 </div>
 
-                <div class="window-body">
-                    <!-- Tab 1: Terminal Prompt -->
-                    <div id="tab-terminal" class="tab-panel active">
-                        <div class="prompt-box">
-                            <div class="prompt-top">
-                                <div style="display: flex; gap: 8px;">
-                                    <span class="badge-pill" style="color: var(--accent-red); border-color: rgba(239, 68, 68, 0.3);">⚡ 3.7 FLASH</span>
-                                    <span class="badge-pill" style="color: var(--accent-cyan); border-color: rgba(6, 182, 212, 0.3);">🪄 Auto</span>
-                                </div>
-                                <div style="color: var(--text-muted); font-size: 0.72rem;">
-                                    🎛️ Config &nbsp; 📚 KB &nbsp; ⚙️ MCP &nbsp; 🔲 Canvas
-                                </div>
-                            </div>
-                            <div class="prompt-input-row">
-                                <span>Tell Ava what to do next...</span>
-                                <span class="cursor"></span>
-                            </div>
-                            <div class="prompt-bottom">
-                                <div style="display: flex; gap: 6px;">
-                                    <span class="badge-pill">📁 IT DESK ▾</span>
-                                    <span class="badge-pill" style="color: var(--accent-cyan);">⚪ 8.1K tok</span>
-                                </div>
-                                <div style="color: var(--text-muted); display: flex; gap: 10px; font-size: 0.85rem;">
-                                    <span>🎙️</span> <span>📎</span> <span>🔨</span> <span style="color: #fff;">⬆</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mono" style="font-size: 0.78rem; color: var(--accent-green);">
-                            • Executed dynamically in 0.4s via Gemini API.
-                        </div>
-                    </div>
+                <div id="tab-analytics" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.26.png" alt="Ava Usage Analytics">
+                </div>
 
-                    <!-- Tab 2: Analytics -->
-                    <div id="tab-analytics" class="tab-panel">
-                        <div class="analytics-grid">
-                            <div class="stat-card">
-                                <div class="stat-label">Requests</div>
-                                <div class="stat-val" style="color: var(--accent-cyan);">36</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Tokens</div>
-                                <div class="stat-val" style="color: var(--accent-purple);">70,179K</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Time Saved</div>
-                                <div class="stat-val" style="color: var(--accent-green);">2 min</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-label">Avg Latency</div>
-                                <div class="stat-val" style="color: var(--accent-amber);">10.0s</div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="tab-build" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.14.png" alt="Ava Build Mode Active">
+                </div>
 
-                    <!-- Tab 3: Visual Canvas -->
-                    <div id="tab-canvas" class="tab-panel">
-                        <div class="canvas-flow">
-                            <div class="flow-node">
-                                <div style="color: var(--accent-purple); margin-bottom: 4px;">📁 CONTEXT DATA</div>
-                                <div style="color: var(--text-muted); font-size: 0.7rem;">Vector Search Stream</div>
-                            </div>
-                            <div class="flow-arrow">➔</div>
-                            <div class="flow-node">
-                                <div style="color: var(--accent-cyan); margin-bottom: 4px;">✨ PROCESS STEP</div>
-                                <div style="color: var(--text-muted); font-size: 0.7rem;">Gemini Prompt Synthesis</div>
-                            </div>
-                            <div class="flow-arrow">➔</div>
-                            <div class="flow-node">
-                                <div style="color: var(--accent-green); margin-bottom: 4px;">🟢 FINAL OUTPUT</div>
-                                <div style="color: var(--text-muted); font-size: 0.7rem;">System Action Execute</div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="tab-voice" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.07.png" alt="Ava Multimodal Voice Connected">
+                </div>
 
-                    <!-- Tab 4: MCP Hub -->
-                    <div id="tab-mcp" class="tab-panel">
-                        <div class="mcp-item">
-                            <div>
-                                <strong style="color: var(--text-main);">🌐 PYTHIA ORACLE</strong>
-                                <div style="color: var(--text-muted); font-size: 0.72rem;">https://projectpythia.com/mcp</div>
-                            </div>
-                            <span class="badge-pill" style="color: var(--accent-amber);">world_brief • predictions</span>
-                        </div>
-                        <div class="mcp-item">
-                            <div>
-                                <strong style="color: var(--text-main);">🌐 FINANCIAL DATASETS</strong>
-                                <div style="color: var(--text-muted); font-size: 0.72rem;">https://mcp.financialdatasets.ai/api</div>
-                            </div>
-                            <span class="badge-pill" style="color: var(--accent-amber);">get_company_facts • earnings</span>
-                        </div>
-                    </div>
+                <div id="tab-kb" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.56.png" alt="Ava Cloud Repository Index">
+                </div>
 
-                    <!-- Tab 5: Cloud KB -->
-                    <div id="tab-kb" class="tab-panel">
-                        <div class="kb-item">
-                            <span>📄 Batch_009 [TXT • 103 KB]</span>
-                            <span style="color: var(--accent-green);">Scanned (40 Chunks)</span>
-                        </div>
-                        <div class="kb-item">
-                            <span>📄 Batch_010 [TXT • 103 KB]</span>
-                            <span style="color: var(--accent-green);">Scanned (40 Chunks)</span>
-                        </div>
-                        <div class="kb-item">
-                            <span>📄 Batch_014 [TXT • 105 KB]</span>
-                            <span style="color: var(--accent-green);">Scanned (40 Chunks)</span>
-                        </div>
-                    </div>
+                <div id="tab-canvas" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.31.png" alt="Ava Visual Pipeline Canvas">
+                </div>
 
-                    <!-- Tab 6: Voice Stream -->
-                    <div id="tab-voice" class="tab-panel">
-                        <div class="mcp-item" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.04);">
-                            <div>
-                                <strong style="color: var(--accent-green);">🟢 LIVE MULTIMODAL VOICE</strong>
-                                <div style="color: var(--text-muted); font-size: 0.72rem;">WebSocket Duplex Audio Stream</div>
-                            </div>
-                            <span class="badge-pill" style="color: var(--accent-green); border-color: var(--accent-green);">Connected</span>
-                        </div>
-                    </div>
+                <div id="tab-automation" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.27.png" alt="Ava Pipeline Automation Bar">
+                </div>
+
+                <div id="tab-mcp" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.22.png" alt="Ava MCP Connector Hub">
+                </div>
+
+                <div id="tab-capabilities" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.16.png" alt="Ava Engine Capabilities Matrix">
+                </div>
+
+                <div id="tab-config" class="tab-panel">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.08.png" alt="Ava Engine Config & Overrides">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tab Switching Logic -->
+    <!-- Tab Switching Script -->
     <script>
         function switchTab(panelId, btnElement) {
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
