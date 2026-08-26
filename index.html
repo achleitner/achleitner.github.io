@@ -206,7 +206,7 @@
             background: #141822;
         }
 
-        /* Unclipped Screenshot Wrapper (preserves macOS native corner transparency) */
+        /* Screenshot Stage (Unclipped, zero-background container) */
         .screenshot-frame {
             background: transparent;
             border: none;
@@ -214,7 +214,7 @@
             border-radius: 0;
             overflow: visible;
             position: relative;
-            max-width: 980px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -223,6 +223,8 @@
             width: 100%;
             height: auto;
             border-radius: 0;
+            background: transparent;
+            /* Allows macOS transparent window edges to render cleanly */
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.95));
         }
 
@@ -304,14 +306,14 @@
                 <button class="tab-btn" onclick="switchTab('tab-config', this)">🎛️ Model Config</button>
             </div>
 
-            <!-- Screenshot Frame with encoded %20 paths -->
+            <!-- Screenshot Frame mapped EXACTLY to repository .png file names -->
             <div class="screenshot-frame">
                 <div id="tab-terminal" class="tab-panel active">
                     <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.32.png" alt="Ava Terminal Interface">
                 </div>
 
                 <div id="tab-analytics" class="tab-panel">
-                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.26.jpg" alt="Ava Usage Analytics">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.19.26.png" alt="Ava Usage Analytics">
                 </div>
 
                 <div id="tab-build" class="tab-panel">
@@ -323,11 +325,11 @@
                 </div>
 
                 <div id="tab-kb" class="tab-panel">
-                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.56.jpg" alt="Ava Cloud Repository Index">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.56.png" alt="Ava Cloud Repository Index">
                 </div>
 
                 <div id="tab-canvas" class="tab-panel">
-                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.31.jpg" alt="Ava Visual Pipeline Canvas">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.31.png" alt="Ava Visual Pipeline Canvas">
                 </div>
 
                 <div id="tab-automation" class="tab-panel">
@@ -335,7 +337,7 @@
                 </div>
 
                 <div id="tab-mcp" class="tab-panel">
-                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.22.jpg" alt="Ava MCP Connector Hub">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.22.png" alt="Ava MCP Connector Hub">
                 </div>
 
                 <div id="tab-capabilities" class="tab-panel">
@@ -343,7 +345,7 @@
                 </div>
 
                 <div id="tab-config" class="tab-panel">
-                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.08.jpg" alt="Ava Engine Config & Overrides">
+                    <img class="app-img" src="assets/Screenshot%202026-08-26%20at%2020.18.08.png" alt="Ava Engine Config & Overrides">
                 </div>
             </div>
         </div>
